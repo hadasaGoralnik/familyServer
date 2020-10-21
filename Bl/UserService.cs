@@ -27,7 +27,7 @@ namespace Bl
         {
             using (familydbEntities1 db = new familydbEntities1())
             {
-                User find = db.Users.FirstOrDefault(x=>x.Password== request .Passward& x.FirstName== request.UserName);
+                User find = db.Users.FirstOrDefault(x=>x.Password== request .Password& x.FirstName== request.UserName);
                 if (find == null)
                     return null;
                 return Convertion.UserConvertion.ConvertToDto(find);

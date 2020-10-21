@@ -11,7 +11,7 @@ using Dto.Requests;
 
 namespace Ui.Controllers
 {
-    [Route("api/[controller]/{action}")]
+
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class UserController : ApiController
     {
@@ -20,19 +20,16 @@ namespace Ui.Controllers
             return UserService.gets();
         }
         [HttpPost]
-        public UserDto Login(LoginRequest request)
+        public IHttpActionResult Login(LoginRequest request)
         {
-            return UserService.Login(request);
-        }
-        [HttpPost]//,data
-        public IHttpActionResult songPost(UserDto user)
-        {
+
+            UserDto user= UserService.Login(request);
             if (user == null)
                 return BadRequest();
-            user = UserService.post(user);
-            if (user != null)
+           if (user != null)
                 return Ok(user);
             return BadRequest();
         }
+  
     }
 }

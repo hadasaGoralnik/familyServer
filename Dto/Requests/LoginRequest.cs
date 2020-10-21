@@ -9,7 +9,7 @@ namespace Dto.Requests
     public class LoginRequest
     {
         public string UserName { get; set; }
-        public string Passward { get; set; }
+        public string Password { get; set; }
 
     }
 }
