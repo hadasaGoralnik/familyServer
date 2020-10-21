@@ -12,15 +12,15 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Events
+    public partial class Event
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Events()
+        public Event()
         {
-            this.ChatMessages = new HashSet<ChatMessages>();
-            this.Menu = new HashSet<Menu>();
-            this.Message = new HashSet<Message>();
-            this.Picture = new HashSet<Picture>();
+            this.ChatMessages = new HashSet<ChatMessage>();
+            this.Menus = new HashSet<Menu>();
+            this.Messages = new HashSet<Message>();
+            this.Pictures = new HashSet<Picture>();
         }
     
         public int Id { get; set; }
@@ -36,15 +36,15 @@ namespace Dal
         public int EventKindId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChatMessages> ChatMessages { get; set; }
+        public virtual ICollection<ChatMessage> ChatMessages { get; set; }
         public virtual EventsKind EventsKind { get; set; }
-        public virtual Groups Groups { get; set; }
+        public virtual Group Group { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Menu> Menu { get; set; }
+        public virtual ICollection<Menu> Menus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Message> Message { get; set; }
+        public virtual ICollection<Message> Messages { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Picture> Picture { get; set; }
+        public virtual ICollection<Picture> Pictures { get; set; }
     }
 }

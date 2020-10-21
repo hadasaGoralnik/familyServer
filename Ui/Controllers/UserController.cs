@@ -7,10 +7,11 @@ using System.Web.Http;
 using Dto;
 using Bl;
 using System.Web.Http.Cors;
+using Dto.Requests;
 
 namespace Ui.Controllers
 {
-    [RoutePrefix("api/user")]
+    [Route("api/[controller]/{action}")]
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class UserController : ApiController
     {
@@ -18,10 +19,10 @@ namespace Ui.Controllers
         {
             return UserService.gets();
         }
-        //?id=1233
-        public UserDto GetLogin(string password,string name)
+        [HttpPost]
+        public UserDto Login(LoginRequest request)
         {
-            return UserService.Login(password, name);
+            return UserService.Login(request);
         }
         [HttpPost]//,data
         public IHttpActionResult songPost(UserDto user)

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="familydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="familydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChatMessages">
           <Key>
             <PropertyRef Name="Id" />
@@ -77,16 +77,6 @@
           <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EventId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -277,7 +267,6 @@
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGoup" EntityType="Self.UserGoup" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ChatMessages_Events" Association="Self.FK_ChatMessages_Events">
@@ -333,11 +322,12 @@
             <End Role="UserGoup" EntitySet="UserGoup" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="familydbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="ChatMessages">
+        <EntityType Name="ChatMessage">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -346,10 +336,10 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="EventId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Events" Relationship="Self.FK_ChatMessages_Events" FromRole="ChatMessages" ToRole="Events" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_ChatMessages_Events" FromRole="ChatMessages" ToRole="Events" />
           <NavigationProperty Name="User" Relationship="Self.FK_ChatMessages_User" FromRole="ChatMessages" ToRole="User" />
         </EntityType>
-        <EntityType Name="Events">
+        <EntityType Name="Event">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -366,11 +356,11 @@
           <Property Name="EventKindId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ChatMessages" Relationship="Self.FK_ChatMessages_Events" FromRole="Events" ToRole="ChatMessages" />
           <NavigationProperty Name="EventsKind" Relationship="Self.FK_Events_EventsKind" FromRole="Events" ToRole="EventsKind" />
-          <NavigationProperty Name="Groups" Relationship="Self.FK_Events_Groups" FromRole="Events" ToRole="Groups" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Events_Groups" FromRole="Events" ToRole="Groups" />
           <NavigationProperty Name="User" Relationship="Self.FK_Events_Person" FromRole="Events" ToRole="User" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK_Menu_Events" FromRole="Events" ToRole="Menu" />
-          <NavigationProperty Name="Message" Relationship="Self.FK_Message_Events" FromRole="Events" ToRole="Message" />
-          <NavigationProperty Name="Picture" Relationship="Self.FK_Picture_Events" FromRole="Events" ToRole="Picture" />
+          <NavigationProperty Name="Menus" Relationship="Self.FK_Menu_Events" FromRole="Events" ToRole="Menu" />
+          <NavigationProperty Name="Messages" Relationship="Self.FK_Message_Events" FromRole="Events" ToRole="Message" />
+          <NavigationProperty Name="Pictures" Relationship="Self.FK_Picture_Events" FromRole="Events" ToRole="Picture" />
         </EntityType>
         <EntityType Name="EventsKind">
           <Key>
@@ -380,7 +370,7 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Events" Relationship="Self.FK_Events_EventsKind" FromRole="EventsKind" ToRole="Events" />
         </EntityType>
-        <EntityType Name="Groups">
+        <EntityType Name="Group">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -389,7 +379,7 @@
           <Property Name="ManagerId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Events" Relationship="Self.FK_Events_Groups" FromRole="Groups" ToRole="Events" />
           <NavigationProperty Name="User" Relationship="Self.FK_Groups_User" FromRole="Groups" ToRole="User" />
-          <NavigationProperty Name="User1" Relationship="Self.UserGoup" FromRole="Groups" ToRole="User" />
+          <NavigationProperty Name="Users" Relationship="Self.UserGoup" FromRole="Groups" ToRole="User" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -402,7 +392,7 @@
           <Property Name="EventId" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="Cost" Type="Int32" />
-          <NavigationProperty Name="Events" Relationship="Self.FK_Menu_Events" FromRole="Menu" ToRole="Events" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Menu_Events" FromRole="Menu" ToRole="Events" />
           <NavigationProperty Name="User" Relationship="Self.FK_Menu_User" FromRole="Menu" ToRole="User" />
         </EntityType>
         <EntityType Name="Message">
@@ -415,7 +405,7 @@
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EventId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Events" Relationship="Self.FK_Message_Events" FromRole="Message" ToRole="Events" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Message_Events" FromRole="Message" ToRole="Events" />
           <NavigationProperty Name="User" Relationship="Self.FK_Message_User" FromRole="Message" ToRole="User" />
         </EntityType>
         <EntityType Name="Picture">
@@ -426,17 +416,7 @@
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EventId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Events" Relationship="Self.FK_Picture_Events" FromRole="Picture" ToRole="Events" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Picture_Events" FromRole="Picture" ToRole="Events" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -457,13 +437,13 @@
           <NavigationProperty Name="ChatMessages" Relationship="Self.FK_ChatMessages_User" FromRole="User" ToRole="ChatMessages" />
           <NavigationProperty Name="Events" Relationship="Self.FK_Events_Person" FromRole="User" ToRole="Events" />
           <NavigationProperty Name="Groups" Relationship="Self.FK_Groups_User" FromRole="User" ToRole="Groups" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK_Menu_User" FromRole="User" ToRole="Menu" />
-          <NavigationProperty Name="Message" Relationship="Self.FK_Message_User" FromRole="User" ToRole="Message" />
+          <NavigationProperty Name="Menus" Relationship="Self.FK_Menu_User" FromRole="User" ToRole="Menu" />
+          <NavigationProperty Name="Messages" Relationship="Self.FK_Message_User" FromRole="User" ToRole="Message" />
           <NavigationProperty Name="Groups1" Relationship="Self.UserGoup" FromRole="User" ToRole="Groups" />
         </EntityType>
         <Association Name="FK_ChatMessages_Events">
-          <End Role="Events" Type="Self.Events" Multiplicity="1" />
-          <End Role="ChatMessages" Type="Self.ChatMessages" Multiplicity="*" />
+          <End Role="Events" Type="Self.Event" Multiplicity="1" />
+          <End Role="ChatMessages" Type="Self.ChatMessage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Events">
               <PropertyRef Name="Id" />
@@ -475,7 +455,7 @@
         </Association>
         <Association Name="FK_ChatMessages_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="ChatMessages" Type="Self.ChatMessages" Multiplicity="*" />
+          <End Role="ChatMessages" Type="Self.ChatMessage" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -487,7 +467,7 @@
         </Association>
         <Association Name="FK_Events_EventsKind">
           <End Role="EventsKind" Type="Self.EventsKind" Multiplicity="1" />
-          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <End Role="Events" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EventsKind">
               <PropertyRef Name="Id" />
@@ -498,8 +478,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Events_Groups">
-          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
-          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Events" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Groups">
               <PropertyRef Name="Id" />
@@ -511,7 +491,7 @@
         </Association>
         <Association Name="FK_Events_Person">
           <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Events" Type="Self.Events" Multiplicity="*" />
+          <End Role="Events" Type="Self.Event" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -522,7 +502,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Menu_Events">
-          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="Events" Type="Self.Event" Multiplicity="1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Events">
@@ -534,7 +514,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Message_Events">
-          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="Events" Type="Self.Event" Multiplicity="1" />
           <End Role="Message" Type="Self.Message" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Events">
@@ -546,7 +526,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Picture_Events">
-          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="Events" Type="Self.Event" Multiplicity="1" />
           <End Role="Picture" Type="Self.Picture" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Events">
@@ -559,7 +539,7 @@
         </Association>
         <Association Name="FK_Groups_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
-          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -594,29 +574,28 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="UserGoup">
-          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="*" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="familydbEntities" annotation:LazyLoadingEnabled="false">
-          <EntitySet Name="ChatMessages" EntityType="Self.ChatMessages" />
-          <EntitySet Name="Events" EntityType="Self.Events" />
-          <EntitySet Name="EventsKind" EntityType="Self.EventsKind" />
-          <EntitySet Name="Groups" EntityType="Self.Groups" />
-          <EntitySet Name="Menu" EntityType="Self.Menu" />
-          <EntitySet Name="Message" EntityType="Self.Message" />
-          <EntitySet Name="Picture" EntityType="Self.Picture" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="User" EntityType="Self.User" />
+        <EntityContainer Name="familydbEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChatMessages" EntityType="Self.ChatMessage" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="EventsKinds" EntityType="Self.EventsKind" />
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="Pictures" EntityType="Self.Picture" />
+          <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_ChatMessages_Events" Association="Self.FK_ChatMessages_Events">
             <End Role="Events" EntitySet="Events" />
             <End Role="ChatMessages" EntitySet="ChatMessages" />
           </AssociationSet>
           <AssociationSet Name="FK_ChatMessages_User" Association="Self.FK_ChatMessages_User">
-            <End Role="User" EntitySet="User" />
+            <End Role="User" EntitySet="Users" />
             <End Role="ChatMessages" EntitySet="ChatMessages" />
           </AssociationSet>
           <AssociationSet Name="FK_Events_EventsKind" Association="Self.FK_Events_EventsKind">
-            <End Role="EventsKind" EntitySet="EventsKind" />
+            <End Role="EventsKind" EntitySet="EventsKinds" />
             <End Role="Events" EntitySet="Events" />
           </AssociationSet>
           <AssociationSet Name="FK_Events_Groups" Association="Self.FK_Events_Groups">
@@ -624,36 +603,36 @@
             <End Role="Events" EntitySet="Events" />
           </AssociationSet>
           <AssociationSet Name="FK_Events_Person" Association="Self.FK_Events_Person">
-            <End Role="User" EntitySet="User" />
+            <End Role="User" EntitySet="Users" />
             <End Role="Events" EntitySet="Events" />
           </AssociationSet>
           <AssociationSet Name="FK_Menu_Events" Association="Self.FK_Menu_Events">
             <End Role="Events" EntitySet="Events" />
-            <End Role="Menu" EntitySet="Menu" />
+            <End Role="Menu" EntitySet="Menus" />
           </AssociationSet>
           <AssociationSet Name="FK_Message_Events" Association="Self.FK_Message_Events">
             <End Role="Events" EntitySet="Events" />
-            <End Role="Message" EntitySet="Message" />
+            <End Role="Message" EntitySet="Messages" />
           </AssociationSet>
           <AssociationSet Name="FK_Picture_Events" Association="Self.FK_Picture_Events">
             <End Role="Events" EntitySet="Events" />
-            <End Role="Picture" EntitySet="Picture" />
+            <End Role="Picture" EntitySet="Pictures" />
           </AssociationSet>
           <AssociationSet Name="FK_Groups_User" Association="Self.FK_Groups_User">
-            <End Role="User" EntitySet="User" />
+            <End Role="User" EntitySet="Users" />
             <End Role="Groups" EntitySet="Groups" />
           </AssociationSet>
           <AssociationSet Name="FK_Menu_User" Association="Self.FK_Menu_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Menu" EntitySet="Menu" />
+            <End Role="User" EntitySet="Users" />
+            <End Role="Menu" EntitySet="Menus" />
           </AssociationSet>
           <AssociationSet Name="FK_Message_User" Association="Self.FK_Message_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Message" EntitySet="Message" />
+            <End Role="User" EntitySet="Users" />
+            <End Role="Message" EntitySet="Messages" />
           </AssociationSet>
           <AssociationSet Name="UserGoup" Association="Self.UserGoup">
             <End Role="Groups" EntitySet="Groups" />
-            <End Role="User" EntitySet="User" />
+            <End Role="User" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -661,9 +640,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="familydbModelStoreContainer" CdmEntityContainer="familydbEntities">
+        <EntityContainerMapping StorageEntityContainer="familydbModelStoreContainer" CdmEntityContainer="familydbEntities1">
           <EntitySetMapping Name="ChatMessages">
-            <EntityTypeMapping TypeName="familydbModel.ChatMessages">
+            <EntityTypeMapping TypeName="familydbModel.ChatMessage">
               <MappingFragment StoreEntitySet="ChatMessages">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -674,7 +653,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Events">
-            <EntityTypeMapping TypeName="familydbModel.Events">
+            <EntityTypeMapping TypeName="familydbModel.Event">
               <MappingFragment StoreEntitySet="Events">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
@@ -690,7 +669,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EventsKind">
+          <EntitySetMapping Name="EventsKinds">
             <EntityTypeMapping TypeName="familydbModel.EventsKind">
               <MappingFragment StoreEntitySet="EventsKind">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -699,7 +678,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Groups">
-            <EntityTypeMapping TypeName="familydbModel.Groups">
+            <EntityTypeMapping TypeName="familydbModel.Group">
               <MappingFragment StoreEntitySet="Groups">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -707,7 +686,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Menu">
+          <EntitySetMapping Name="Menus">
             <EntityTypeMapping TypeName="familydbModel.Menu">
               <MappingFragment StoreEntitySet="Menu">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -720,7 +699,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Message">
+          <EntitySetMapping Name="Messages">
             <EntityTypeMapping TypeName="familydbModel.Message">
               <MappingFragment StoreEntitySet="Message">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -732,7 +711,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Picture">
+          <EntitySetMapping Name="Pictures">
             <EntityTypeMapping TypeName="familydbModel.Picture">
               <MappingFragment StoreEntitySet="Picture">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -742,18 +721,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="familydbModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="User">
+          <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="familydbModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -793,7 +761,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

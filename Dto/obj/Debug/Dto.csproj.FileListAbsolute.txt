@@ -3,3 +3,9 @@ C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dto\bin\Debug\Dto
 C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dto\obj\Debug\Dto.dll
 C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dto\obj\Debug\Dto.pdb
+C:\Users\user1\Desktop\Hadasa\FinalProject\Dto\bin\Debug\Dto.dll
+C:\Users\user1\Desktop\Hadasa\FinalProject\Dto\bin\Debug\Dto.pdb
+C:\Users\user1\Desktop\Hadasa\FinalProject\Dto\obj\Debug\Dto.csprojAssemblyReference.cache
+C:\Users\user1\Desktop\Hadasa\FinalProject\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
+C:\Users\user1\Desktop\Hadasa\FinalProject\Dto\obj\Debug\Dto.dll
+C:\Users\user1\Desktop\Hadasa\FinalProject\Dto\obj\Debug\Dto.pdb

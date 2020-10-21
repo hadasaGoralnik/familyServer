@@ -12,11 +12,11 @@ namespace Bl
     {
         public static List<GroupsDto> Get(int userId)
         {
-            using (familydbEntities db = new familydbEntities())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                // Groups find = new Groups();
                 var groupIds = (from groups in db.Groups
-                            where groups.User1.Any(c => c.Id == userId)
+                            where groups.Users.Any(c => c.Id == userId)
                             select groups.Id).ToList();
                 var find = db.Groups.Include("User").Include("Events")
                     .Where(x =>groupIds.Contains(x.Id)).ToList();
@@ -27,9 +27,9 @@ namespace Bl
         }
         public static GroupsDto Sighin(GroupsDto group)
         {
-            using (familydbEntities db = new familydbEntities())
+            using (familydbEntities1 db = new familydbEntities1())
             {
-                Groups group1 = db.Groups.Add(Convertion.GroupsConvertion.ConvertToGroups(group));
+                Group group1 = db.Groups.Add(Convertion.GroupsConvertion.ConvertToGroups(group));
                 db.SaveChanges();
                 if (group1 == null)
                     return null;

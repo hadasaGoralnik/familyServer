@@ -26,8 +26,8 @@ namespace Bl.Convertion
             newPreson.IsEnable = User.IsEnable;
             newPreson.IsMale = User.IsMale;
             newPreson.Mail = User.Mail;
-            newPreson.Menu = MenuConvertion.ConvertToDtoList(User.Menu.ToList());
-            newPreson.Message = MessageConvertion.ConvertToDtoList(User.Message.ToList());
+            newPreson.Menu = MenuConvertion.ConvertToDtoList(User.Menus.ToList());
+            newPreson.Message = MessageConvertion.ConvertToDtoList(User.Messages.ToList());
             newPreson.Password = User.Password;
             newPreson.UserName = User.UserName;
             return newPreson;
@@ -67,8 +67,8 @@ namespace Bl.Convertion
             newPreson.IsEnable = User.IsEnable;
             newPreson.IsMale = User.IsMale;
             newPreson.Mail = User.Mail;
-            newPreson.Menu = MenuConvertion.convertToListMenu(User.Menu);
-            newPreson.Message = MessageConvertion.convertToListMessage(User.Message);
+            newPreson.Menus = MenuConvertion.convertToListMenu(User.Menu);
+            newPreson.Messages = MessageConvertion.convertToListMessage(User.Message);
             newPreson.Password = User.Password;
             newPreson.UserName = User.UserName;
             return newPreson;

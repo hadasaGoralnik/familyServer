@@ -12,13 +12,13 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Groups
+    public partial class Group
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Groups()
+        public Group()
         {
-            this.Events = new HashSet<Events>();
-            this.User1 = new HashSet<User>();
+            this.Events = new HashSet<Event>();
+            this.Users = new HashSet<User>();
         }
     
         public int Id { get; set; }
@@ -26,9 +26,9 @@ namespace Dal
         public int ManagerId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Events> Events { get; set; }
+        public virtual ICollection<Event> Events { get; set; }
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User1 { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }
