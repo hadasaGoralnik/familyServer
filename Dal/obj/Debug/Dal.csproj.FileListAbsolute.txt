@@ -1,0 +1,11 @@
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\bin\Debug\Dal.dll.config
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\bin\Debug\Dal.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\bin\Debug\Dal.pdb
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\obj\Debug\Dal.csproj.CopyComplete
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\obj\Debug\Dal.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dal\obj\Debug\Dal.pdb

@@ -1,0 +1,5 @@
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dto\bin\Debug\Dto.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dto\bin\Debug\Dto.pdb
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dto\obj\Debug\Dto.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Dto\obj\Debug\Dto.pdb

@@ -1,0 +1,17 @@
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\Bl.dll.config
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\Bl.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\Bl.pdb
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\Dal.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\Dto.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\EntityFramework.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\Dal.pdb
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\Dal.dll.config
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\Dto.pdb
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\EntityFramework.xml
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\obj\Debug\Bl.csprojAssemblyReference.cache
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\obj\Debug\Bl.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\obj\Debug\Bl.csproj.CopyComplete
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\obj\Debug\Bl.dll
+C:\Users\User\Desktop\ציפי\תכנות\1פרויקט גמר\Bl\obj\Debug\Bl.pdb

@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="familydbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DairyOrFleshy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdSpeciaelEvents" Type="int" />
+    <Property Name="Adress" Type="nchar" MaxLength="10" />
+    <Property Name="City" Type="nchar" MaxLength="10" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Promoter" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="text" />
+    <Property Name="DairyOrFleshy" Type="int" />
+    <Property Name="GroupId" Type="int" />
+  </EntityType>
+  <EntityType Name="EventsKind">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="10" />
+    <Property Name="Repeat" Type="int" />
+  </EntityType>
+  <EntityType Name="FoodKind">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ManagerId" Type="nchar" MaxLength="10" />
+    <Property Name="ManagerPassword" Type="nchar" MaxLength="10" />
+    <Property Name="NumOfGenertion" Type="int" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FoodId" Type="int" Nullable="false" />
+    <Property Name="VolunteerId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="text" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="cost" Type="int" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Date_Write" Type="date" />
+    <Property Name="Dest_Date" Type="date" />
+    <Property Name="Title" Type="char" MaxLength="20" />
+    <Property Name="Contents" Type="text" />
+    <Property Name="MailOrPrint" Type="int" />
+    <Property Name="PIctureId" Type="int" />
+    <Property Name="GroupId" Type="int" />
+  </EntityType>
+  <EntityType Name="Picture">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Path" Type="nchar" MaxLength="10" />
+    <Property Name="Name" Type="nchar" MaxLength="10" />
+    <Property Name="GroupId" Type="int" />
+  </EntityType>
+  <EntityType Name="SendMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sex">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="SpecialEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="HebrewDate" Type="nchar" MaxLength="10" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="EventKind" Type="int" Nullable="false" />
+    <Property Name="Description" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Statuss">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Birthday" Type="date" />
+    <Property Name="MarryDate" Type="date" />
+    <Property Name="MotherId" Type="int" />
+    <Property Name="FatherId" Type="int" />
+    <Property Name="WifeOrHusbandId" Type="int" />
+    <Property Name="mail" Type="varchar" MaxLength="30" />
+    <Property Name="LastName" Type="varchar" MaxLength="20" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="Adress" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Generation" Type="int" />
+    <Property Name="PictureID" Type="varchar" MaxLength="20" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserGoup">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserPicture">
+    <Key>
+      <PropertyRef Name="PictureId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="PictureId" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Events_DairyOrFleshy">
+    <End Role="DairyOrFleshy" Type="Self.DairyOrFleshy" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DairyOrFleshy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="DairyOrFleshy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_Person">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="Promoter" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_SpecialEvents">
+    <End Role="SpecialEvents" Type="Self.SpecialEvents" Multiplicity="0..1" />
+    <End Role="Events" Type="Self.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpecialEvents">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="IdSpeciaelEvents" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_Events">
+    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_FoodKind">
+    <End Role="FoodKind" Type="Self.FoodKind" Multiplicity="1" />
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodKind">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="FoodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="VolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_User1">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="VolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Message_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Message" Type="Self.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Message_SendMessage">
+    <End Role="SendMessage" Type="Self.SendMessage" Multiplicity="0..1" />
+    <End Role="Message" Type="Self.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SendMessage">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="MailOrPrint" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Message_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Message" Type="Self.Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Person">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User1" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="WifeOrHusbandId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Person1">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User1" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="FatherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Person2">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User1" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="MotherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Picture_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Picture" Type="Self.Picture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Picture">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PicturePerson_Person">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserPicture" Type="Self.UserPicture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPicture">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecialEvents_EventsKind">
+    <End Role="EventsKind" Type="Self.EventsKind" Multiplicity="1" />
+    <End Role="SpecialEvents" Type="Self.SpecialEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventsKind">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialEvents">
+        <PropertyRef Name="EventKind" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecialEvents_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="SpecialEvents" Type="Self.SpecialEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpecialEvents">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Sex">
+    <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sex">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Sex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Statuss">
+    <End Role="Statuss" Type="Self.Statuss" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statuss">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGoup_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+    <End Role="UserGoup" Type="Self.UserGoup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserGoup">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGoup_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserGoup" Type="Self.UserGoup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserGoup">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPicture_Picture">
+    <End Role="Picture" Type="Self.Picture" Multiplicity="1" />
+    <End Role="UserPicture" Type="Self.UserPicture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Picture">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserPicture">
+        <PropertyRef Name="PictureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="familydbModelStoreContainer">
+    <EntitySet Name="DairyOrFleshy" EntityType="Self.DairyOrFleshy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventsKind" EntityType="Self.EventsKind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FoodKind" EntityType="Self.FoodKind" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SendMessage" EntityType="Self.SendMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sex" EntityType="Self.Sex" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpecialEvents" EntityType="Self.SpecialEvents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Statuss" EntityType="Self.Statuss" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGoup" EntityType="Self.UserGoup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPicture" EntityType="Self.UserPicture" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Events_DairyOrFleshy" Association="Self.FK_Events_DairyOrFleshy">
+      <End Role="DairyOrFleshy" EntitySet="DairyOrFleshy" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_Groups" Association="Self.FK_Events_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_Person" Association="Self.FK_Events_Person">
+      <End Role="User" EntitySet="User" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_SpecialEvents" Association="Self.FK_Events_SpecialEvents">
+      <End Role="SpecialEvents" EntitySet="SpecialEvents" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_Events" Association="Self.FK_Menu_Events">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_FoodKind" Association="Self.FK_Menu_FoodKind">
+      <End Role="FoodKind" EntitySet="FoodKind" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_User" Association="Self.FK_Menu_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_User1" Association="Self.FK_Menu_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Message_Groups" Association="Self.FK_Message_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Message_SendMessage" Association="Self.FK_Message_SendMessage">
+      <End Role="SendMessage" EntitySet="SendMessage" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Message_User" Association="Self.FK_Message_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Message" EntitySet="Message" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Person" Association="Self.FK_Person_Person">
+      <End Role="User" EntitySet="User" />
+      <End Role="User1" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Person1" Association="Self.FK_Person_Person1">
+      <End Role="User" EntitySet="User" />
+      <End Role="User1" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Person2" Association="Self.FK_Person_Person2">
+      <End Role="User" EntitySet="User" />
+      <End Role="User1" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Picture_Groups" Association="Self.FK_Picture_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Picture" EntitySet="Picture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PicturePerson_Person" Association="Self.FK_PicturePerson_Person">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserPicture" EntitySet="UserPicture" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecialEvents_EventsKind" Association="Self.FK_SpecialEvents_EventsKind">
+      <End Role="EventsKind" EntitySet="EventsKind" />
+      <End Role="SpecialEvents" EntitySet="SpecialEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecialEvents_User" Association="Self.FK_SpecialEvents_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="SpecialEvents" EntitySet="SpecialEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Sex" Association="Self.FK_User_Sex">
+      <End Role="Sex" EntitySet="Sex" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Statuss" Association="Self.FK_User_Statuss">
+      <End Role="Statuss" EntitySet="Statuss" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGoup_Groups" Association="Self.FK_UserGoup_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="UserGoup" EntitySet="UserGoup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGoup_User" Association="Self.FK_UserGoup_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserGoup" EntitySet="UserGoup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPicture_Picture" Association="Self.FK_UserPicture_Picture">
+      <End Role="Picture" EntitySet="Picture" />
+      <End Role="UserPicture" EntitySet="UserPicture" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
