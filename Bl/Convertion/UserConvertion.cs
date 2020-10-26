@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dal;
 using Dto;
+using Dto.Requests;
 
 namespace Bl.Convertion
 {
@@ -33,6 +34,8 @@ namespace Bl.Convertion
             return newPreson;
            
         }
+
+
         public static List<UserDto> ConvertToDtoList(List<User> u)
         {
             List<UserDto> newUser = new List<UserDto>();
@@ -71,6 +74,22 @@ namespace Bl.Convertion
             newPreson.Messages = MessageConvertion.convertToListMessage(User.Message);
             newPreson.Password = User.Password;
             newPreson.UserName = User.UserName;
+            return newPreson;
+        }
+
+        public static User ConvertSignUpRequestToUser(SignUpRequest request)
+        {
+            User newPreson = new User();
+            newPreson.Birthday = Convert.ToDateTime(request.Birthday);
+            newPreson.MarryDate = request.MarryDate;
+            newPreson.LastName = request.LastName;
+            newPreson.Address = request.Address;
+            newPreson.FirstName = request.FirstName;
+            newPreson.Image = request.Image;
+            newPreson.IsMale = request.IsMale;
+            newPreson.Mail = request.Mail;
+            newPreson.Password = request.Password;
+            newPreson.UserName = request.UserName;
             return newPreson;
         }
     }

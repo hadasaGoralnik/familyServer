@@ -15,10 +15,7 @@ namespace Ui.Controllers
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class UserController : ApiController
     {
-        public List<UserDto> GetLogin()
-        {
-            return UserService.gets();
-        }
+
         [HttpPost]
         public IHttpActionResult Login(LoginRequest request)
         {
@@ -30,6 +27,17 @@ namespace Ui.Controllers
                 return Ok(user);
             return BadRequest();
         }
-  
+        [HttpPost]
+        public IHttpActionResult SignUp(SignUpRequest request)
+        {
+
+            UserDto user = UserService.SignUp(request);
+            if (user == null)
+                return BadRequest();
+            if (user != null)
+                return Ok(user);
+            return BadRequest();
+        }
+
     }
 }
