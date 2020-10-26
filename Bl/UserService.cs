@@ -34,21 +34,21 @@ namespace Bl
             }
         }
 
-        public static UserDto put(string password, UserDto user)
-        {
-            using (familydbEntities1 db = new familydbEntities1())
-            {
-                User find = new User();
-                find = db.Users.ToList().FirstOrDefault(x => x.Password == password);
-                if (find == null)
-                    return null;
-                //. עדכון נתונים כותבים רק את מה שרוצים לתת לשנות
-                find.LastName = user.LastName;
-                db.SaveChanges();
-                return Convertion.UserConvertion.ConvertToDto(find);
-            }
-        }
-
+        //public static UserDto put(string password,UserDto user)
+        //{
+        //    using (familydbEntities1 db = new familydbEntities1())
+        //    {
+        //        User find = new User();
+        //      find=  db.Users.ToList().FirstOrDefault(x => x.Password== password);
+        //        if (find == null)
+        //            return null;
+        //        //. עדכון נתונים כותבים רק את מה שרוצים לתת לשנות
+        //        find.LastName = user.LastName;
+        //        db.SaveChanges();
+        //        return Convertion.UserConvertion.ConvertToDto(find);
+        //    }
+        //}
+        //
         public static UserDto SignUp(SignUpRequest request)
         {
             using (familydbEntities1 db = new familydbEntities1())
