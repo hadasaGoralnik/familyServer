@@ -33,7 +33,7 @@ namespace Bl
                 return Convertion.UserConvertion.ConvertToDto(find);
             }
         }
-   
+
         //public static UserDto put(string password,UserDto user)
         //{
         //    using (familydbEntities1 db = new familydbEntities1())
@@ -48,6 +48,7 @@ namespace Bl
         //        return Convertion.UserConvertion.ConvertToDto(find);
         //    }
         //}
+        //
         public static UserDto SignUp(SignUpRequest request)
         {
             using (familydbEntities1 db = new familydbEntities1())
