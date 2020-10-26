@@ -22,7 +22,6 @@ namespace Bl.Convertion
             newPreson.ChatMessages = ChatMessagesConvertor.ConvertToDtoList(User.ChatMessages.ToList());
             newPreson.Events = EventsConvertion.ConvertToDtoList(User.Events.ToList());
             newPreson.FirstName = User.FirstName;
-            newPreson.Groups = GroupsConvertion.ConvertToDtoList(User.Groups.ToList());
             newPreson.Image = User.Image;
             newPreson.IsEnable = User.IsEnable;
             newPreson.IsMale = User.IsMale;
@@ -65,7 +64,6 @@ namespace Bl.Convertion
             newPreson.ChatMessages = ChatMessagesConvertor.convertToListChatMessages(User.ChatMessages);
             newPreson.Events = EventsConvertion.convertToListEvent(User.Events);
             newPreson.FirstName = User.FirstName;
-            newPreson.Groups = GroupsConvertion.convertToListGroups(User.Groups);
             newPreson.Image = User.Image;
             newPreson.IsEnable = User.IsEnable;
             newPreson.IsMale = User.IsMale;

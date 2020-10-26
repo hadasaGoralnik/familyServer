@@ -1,5 +1,6 @@
 ﻿using Dal;
 using Dto;
+using Dto.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,19 +26,34 @@ namespace Bl
                 return Convertion.GroupsConvertion.ConvertToDtoList(find);
             }
         }
-        public static GroupsDto Sighin(GroupsDto group)
+        //public static GroupsDto Sighin(GroupsDto group)
+        //{
+        //    using (familydbEntities1 db = new familydbEntities1())
+        //    {
+        //        Group group1 = db.Groups.Add(Convertion.GroupsConvertion.ConvertToGroups(group));
+        //        db.SaveChanges();
+        //        if (group1 == null)
+        //            return null;
+        //        return Convertion.GroupsConvertion.ConvertToDto(group1);
+        //    }
+        //}
+
+
+        public static GroupsDto AddGroup(AddGroupRequest request)
         {
             using (familydbEntities1 db = new familydbEntities1())
             {
-                Group group1 = db.Groups.Add(Convertion.GroupsConvertion.ConvertToGroups(group));
+            
+                Group group = db.Groups.Add(Convertion.GroupsConvertion.ConvertAddGroupRequestToUser(request));
                 db.SaveChanges();
-                if (group1 == null)
+                if (group == null)
                     return null;
-                return Convertion.GroupsConvertion.ConvertToDto(group1);
+                User user = db.Users.FirstOrDefault(x => x.Id == request.ManagerId);
+                group.Users.Add(user);
+                db.SaveChanges();
+                return Convertion.GroupsConvertion.ConvertToDto(group);
             }
         }
-
-
     }
 
 }

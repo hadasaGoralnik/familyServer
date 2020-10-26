@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dto
+namespace Dto.Requests
 {
-    public class GroupsDto
+    public class AddGroupRequest
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int ManagerId { get; set; }
-        public List<EventsDto> Events { get; set; }
-    
+     
     }
 }

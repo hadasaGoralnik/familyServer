@@ -23,12 +23,9 @@ namespace Dto
         public string Image { get; set; }
         public string Password { get; set; }
         public List<ChatMessagesDto> ChatMessages { get; set; }
-      
         public List<EventsDto> Events { get; set; }
-        public List<GroupsDto> Groups { get; set; }
-       
         public List<MenuDto> Menu { get; set; }
         public List<MessageDto> Message { get; set; }
-        public List<GroupsDto> Groups1 { get; set; }
+   
     }
 }
