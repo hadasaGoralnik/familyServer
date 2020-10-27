@@ -23,21 +23,23 @@ namespace Ui.Controllers
             return Ok( GroupService.Get(UserId));
         }
 
-        //[HttpPost]//,data
-        //public IHttpActionResult songPost(GroupsDto group)
-        //{
-        //    if (group == null)
-        //        return BadRequest();
-        //    group = GroupService.Sighin(group);
-        //    if (group != null)
-        //        return Ok(group);
-        //    return BadRequest();
-        //}
+        
         [HttpPost]
         public IHttpActionResult AddGroup(AddGroupRequest request)
         {
 
             GroupsDto group = GroupService.AddGroup(request);
+            if (group == null)
+                return BadRequest();
+            if (group != null)
+                return Ok(group);
+            return BadRequest();
+        }
+        [HttpPost]
+        public IHttpActionResult DeleteGroup(DeleteGroupRequest request)
+        {
+
+            GroupsDto group = GroupService.DeleteGroup(request);
             if (group == null)
                 return BadRequest();
             if (group != null)

@@ -25,7 +25,7 @@ namespace Bl
         //}
         public static UserDto Login(LoginRequest request)
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities2 db = new familydbEntities2())
             {
                 User find = db.Users.FirstOrDefault(x=>x.Password== request .Password& x.UserName== request.UserName);
                 if (find == null)
@@ -51,7 +51,7 @@ namespace Bl
         //
         public static UserDto SignUp(SignUpRequest request)
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities2 db = new familydbEntities2())
             {
                 User user = new User();
                 user = db.Users.Add(Convertion.UserConvertion.ConvertSignUpRequestToUser(request));

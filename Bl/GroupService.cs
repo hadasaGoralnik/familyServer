@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Bl
 {
@@ -13,7 +14,7 @@ namespace Bl
     {
         public static List<GroupsDto> Get(int userId)
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities2 db = new familydbEntities2())
             {
                // Groups find = new Groups();
                 var groupIds = (from groups in db.Groups
@@ -26,22 +27,11 @@ namespace Bl
                 return Convertion.GroupsConvertion.ConvertToDtoList(find);
             }
         }
-        //public static GroupsDto Sighin(GroupsDto group)
-        //{
-        //    using (familydbEntities1 db = new familydbEntities1())
-        //    {
-        //        Group group1 = db.Groups.Add(Convertion.GroupsConvertion.ConvertToGroups(group));
-        //        db.SaveChanges();
-        //        if (group1 == null)
-        //            return null;
-        //        return Convertion.GroupsConvertion.ConvertToDto(group1);
-        //    }
-        //}
 
 
         public static GroupsDto AddGroup(AddGroupRequest request)
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities2 db = new familydbEntities2())
             {
             
                 Group group = db.Groups.Add(Convertion.GroupsConvertion.ConvertAddGroupRequestToUser(request));
@@ -51,6 +41,29 @@ namespace Bl
                 User user = db.Users.FirstOrDefault(x => x.Id == request.ManagerId);
                 group.Users.Add(user);
                 db.SaveChanges();
+                return Convertion.GroupsConvertion.ConvertToDto(group);
+            }
+        }
+
+        public static GroupsDto DeleteGroup(DeleteGroupRequest request)
+        {
+            using (familydbEntities2 db = new familydbEntities2())
+            {
+                var group = db.Groups.Include(a => a.Users).SingleOrDefault(a => a.Id == request.GroupId);
+
+                if (group != null)
+                {
+                    foreach (var user in group.Users
+                        .Where(u => u.Groups.Contains(group)).ToList())
+                    {
+                        group.Users.Remove(user);
+                    }
+                    db.Groups.Remove(group);
+                    db.SaveChanges();
+                }
+               
+                if (group == null)
+                    return null;
                 return Convertion.GroupsConvertion.ConvertToDto(group);
             }
         }

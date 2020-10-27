@@ -91,6 +91,16 @@
     <Property Name="EventId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Event" Relationship="Self.FK_Picture_Events" FromRole="Picture" ToRole="Events" />
   </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="Id" />
@@ -250,7 +260,7 @@
     <End Role="Groups" Type="Self.Group" Multiplicity="*" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="familydbEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="familydbEntities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChatMessages" EntityType="Self.ChatMessage" />
     <EntitySet Name="Events" EntityType="Self.Event" />
     <EntitySet Name="EventsKinds" EntityType="Self.EventsKind" />
@@ -258,6 +268,7 @@
     <EntitySet Name="Menus" EntityType="Self.Menu" />
     <EntitySet Name="Messages" EntityType="Self.Message" />
     <EntitySet Name="Pictures" EntityType="Self.Picture" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <AssociationSet Name="FK_ChatMessages_Events" Association="Self.FK_ChatMessages_Events">
       <End Role="Events" EntitySet="Events" />
