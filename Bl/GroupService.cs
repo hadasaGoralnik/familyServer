@@ -67,6 +67,17 @@ namespace Bl
                 return Convertion.GroupsConvertion.ConvertToDto(group);
             }
         }
+
+        public static List<UserDto> GetUsers(int groupId)
+        {
+            using (familydbEntities2 db = new familydbEntities2())
+            {
+                List<User> users = db.Groups.FirstOrDefault(grp => grp.Id == groupId).Users.ToList();
+                if (users == null)
+                    return null;
+                return Convertion.UserConvertion.ConvertToDtoList(users);
+            }
+        }
     }
 
 }

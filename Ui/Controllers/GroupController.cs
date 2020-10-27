@@ -22,8 +22,14 @@ namespace Ui.Controllers
         {
             return Ok( GroupService.Get(UserId));
         }
+        [HttpGet]
+        [Route("api/group/GetUsers/{GroupId}")]
 
-        
+        public IHttpActionResult GetUsers(int GroupId)
+        {
+            return Ok(GroupService.GetUsers(GroupId));
+        }
+
         [HttpPost]
         public IHttpActionResult AddGroup(AddGroupRequest request)
         {
