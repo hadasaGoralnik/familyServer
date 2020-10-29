@@ -9,3 +9,9 @@ C:\Users\user1\Desktop\Hadasa\FinalProject\Dto\obj\Debug\Dto.csprojAssemblyRefer
 C:\Users\user1\Desktop\Hadasa\FinalProject\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
 C:\Users\user1\Desktop\Hadasa\FinalProject\Dto\obj\Debug\Dto.dll
 C:\Users\user1\Desktop\Hadasa\FinalProject\Dto\obj\Debug\Dto.pdb
+C:\Users\User\Desktop\ציפי\תכנות\FinalprojectClient\familyServer\familyServer\Dto\bin\Debug\Dto.dll
+C:\Users\User\Desktop\ציפי\תכנות\FinalprojectClient\familyServer\familyServer\Dto\bin\Debug\Dto.pdb
+C:\Users\User\Desktop\ציפי\תכנות\FinalprojectClient\familyServer\familyServer\Dto\obj\Debug\Dto.csprojAssemblyReference.cache
+C:\Users\User\Desktop\ציפי\תכנות\FinalprojectClient\familyServer\familyServer\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ציפי\תכנות\FinalprojectClient\familyServer\familyServer\Dto\obj\Debug\Dto.dll
+C:\Users\User\Desktop\ציפי\תכנות\FinalprojectClient\familyServer\familyServer\Dto\obj\Debug\Dto.pdb

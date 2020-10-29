@@ -9,7 +9,7 @@ namespace Bl.Convertion
 {
    public class EventsConvertion
     {
-        public static EventsDto ConvertToDto(Event events)
+        public static EventsDto ConvertToDto(Events events)
         {
             
             EventsDto newEvent = new EventsDto();
@@ -28,12 +28,12 @@ namespace Bl.Convertion
             newEvent.Picture = newEvent.Picture;
             newEvent.Repeat = events.Repeat;
             newEvent.ChatMessages = ChatMessagesConvertor.ConvertToDtoList(events.ChatMessages.ToList());
-            newEvent.Menu = MenuConvertion.ConvertToDtoList(events.Menus.ToList());
+            newEvent.Menu = MenuConvertion.ConvertToDtoList(events.Menu.ToList());
             return newEvent;
         }
-        public static Event ConvertToEvent(EventsDto events)
+        public static Events ConvertToEvent(EventsDto events)
         {
-            Event newEvent = new Event();
+            Events newEvent = new Events();
             newEvent.Comment = events.Comment;
             newEvent.Date = events.Date;
             newEvent.Description = events.Description;
@@ -45,14 +45,14 @@ namespace Bl.Convertion
             newEvent.Address = events.Address;
             newEvent.EventKindId = newEvent.EventKindId;
             newEvent.IsDairy = newEvent.IsDairy;
-            newEvent.Messages = newEvent.Messages;
-            newEvent.Pictures = newEvent.Pictures;
+            newEvent.Message = newEvent.Message;
+            newEvent.Picture = newEvent.Picture;
             newEvent.Repeat = events.Repeat;
             newEvent.ChatMessages = ChatMessagesConvertor.convertToListChatMessages(events.ChatMessages);
-            newEvent.Menus = MenuConvertion.convertToListMenu(events.Menu);
+            newEvent.Menu = MenuConvertion.convertToListMenu(events.Menu);
             return newEvent;
         }
-        public static List<EventsDto> ConvertToDtoList(List<Event> e)
+        public static List<EventsDto> ConvertToDtoList(List<Events> e)
         {
             List<EventsDto> newEvent = new List<EventsDto>();
             e.ForEach(x =>
@@ -61,9 +61,9 @@ namespace Bl.Convertion
             });
             return newEvent;
         }
-        public static List<Event> convertToListEvent(List<EventsDto> e)
+        public static List<Events> convertToListEvent(List<EventsDto> e)
         {
-            List<Event> newEvent = new List<Event>();
+            List<Events> newEvent = new List<Events>();
             e.ForEach(x =>
             {
                 newEvent.Add(ConvertToEvent(x));

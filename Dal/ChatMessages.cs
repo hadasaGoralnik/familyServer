@@ -12,18 +12,15 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class EventsKind
+    public partial class ChatMessages
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EventsKind()
-        {
-            this.Events = new HashSet<Events>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Title { get; set; }
+        public int UserID { get; set; }
+        public System.DateTime Date { get; set; }
+        public int EventId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Events> Events { get; set; }
+        public virtual Events Events { get; set; }
+        public virtual User User { get; set; }
     }
 }

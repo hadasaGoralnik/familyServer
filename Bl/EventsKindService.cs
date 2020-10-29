@@ -11,11 +11,11 @@ namespace Bl
     {
         public static List<EventsKindDto> GetEventsKinds()
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities2 db = new familydbEntities2())
             {
 
                List<EventsKindDto>  eventsKinds = new List<EventsKindDto>();
-                db.EventsKinds.ToList().ForEach(x =>
+                db.EventsKind.ToList().ForEach(x =>
                 {
                     eventsKinds.Add(Convertion.EventsKindConvertion.ConvertToDto(x));
                 });

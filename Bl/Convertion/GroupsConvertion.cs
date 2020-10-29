@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Group = Dal.Group;
+using Group = Dal.Groups;
 
 namespace Bl.Convertion
 {
     public class GroupsConvertion
     {
-        public static GroupsDto ConvertToDto(Group groups)
+        public static GroupsDto ConvertToDto(Groups groups)
         {
             GroupsDto newgroups = new GroupsDto();
             newgroups.Id = groups.Id;
             newgroups.ManagerId = groups.ManagerId;
             newgroups.Name = groups.Name;
-            newgroups.User1 = UserConvertion.ConvertToDtoList(groups.Users.ToList());
+            newgroups.User1 = UserConvertion.ConvertToDtoList(groups.User1.ToList());
             newgroups.Events = EventsConvertion.ConvertToDtoList(groups.Events.ToList());
             return newgroups;
         }
@@ -29,11 +29,11 @@ namespace Bl.Convertion
             newgroups.Id = groups.Id;
             newgroups.ManagerId = groups.ManagerId;
             newgroups.Name = groups.Name;
-            newgroups.Users = UserConvertion.convertToListUser(groups.User1);
+            newgroups.User1 = UserConvertion.convertToListUser(groups.User1);
             newgroups.Events = EventsConvertion.convertToListEvent(groups.Events);
             return newgroups;
         }
-        public static List<GroupsDto> ConvertToDtoList(List<Dal.Group> g)
+        public static List<GroupsDto> ConvertToDtoList(List<Dal.Groups> g)
         {
             List<GroupsDto> Groups = new List<GroupsDto>();
             g.ForEach(x =>

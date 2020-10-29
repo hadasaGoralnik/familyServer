@@ -13,10 +13,10 @@ namespace Dal
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class familydbEntities1 : DbContext
+    public partial class familydbEntities2 : DbContext
     {
-        public familydbEntities1()
-            : base("name=familydbEntities1")
+        public familydbEntities2()
+            : base("name=familydbEntities2")
         {
         }
     
@@ -25,13 +25,14 @@ namespace Dal
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ChatMessage> ChatMessages { get; set; }
-        public virtual DbSet<Event> Events { get; set; }
-        public virtual DbSet<EventsKind> EventsKinds { get; set; }
-        public virtual DbSet<Group> Groups { get; set; }
-        public virtual DbSet<Menu> Menus { get; set; }
-        public virtual DbSet<Message> Messages { get; set; }
-        public virtual DbSet<Picture> Pictures { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<ChatMessages> ChatMessages { get; set; }
+        public virtual DbSet<Events> Events { get; set; }
+        public virtual DbSet<EventsKind> EventsKind { get; set; }
+        public virtual DbSet<Groups> Groups { get; set; }
+        public virtual DbSet<Menu> Menu { get; set; }
+        public virtual DbSet<Message> Message { get; set; }
+        public virtual DbSet<Picture> Picture { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }
