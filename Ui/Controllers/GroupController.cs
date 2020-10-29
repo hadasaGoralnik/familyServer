@@ -52,5 +52,16 @@ namespace Ui.Controllers
                 return Ok(group);
             return BadRequest();
         }
+        [HttpPost]
+        public IHttpActionResult DeleteUserFromGroup(DeleteUserFromGroupRequest request)
+        {
+
+            GroupsDto group = GroupService.DeleteUserFromGroup(request);
+            if (group == null)
+                return BadRequest();
+            if (group != null)
+                return Ok(group);
+            return BadRequest();
+        }
     }
 }

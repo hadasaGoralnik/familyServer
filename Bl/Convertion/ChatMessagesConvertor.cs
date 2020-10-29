@@ -11,7 +11,7 @@ namespace Bl.Convertion
 {
     public class ChatMessagesConvertor
     {
-        public static ChatMessagesDto ConvertToDto(ChatMessage chatMessages)
+        public static ChatMessagesDto ConvertToDto(ChatMessages chatMessages)
         {
             ChatMessagesDto newChatMessages = new ChatMessagesDto();
             newChatMessages.Date = chatMessages.Date;
@@ -21,9 +21,9 @@ namespace Bl.Convertion
             newChatMessages.UserID = chatMessages.UserID;
             return newChatMessages;
         }
-        public static ChatMessage ConvertToChatMessages(ChatMessagesDto chatMessages)
+        public static ChatMessages ConvertToChatMessages(ChatMessagesDto chatMessages)
         {
-            ChatMessage newChatMessages = new ChatMessage();
+            ChatMessages newChatMessages = new ChatMessages();
             newChatMessages.Date = chatMessages.Date;
             newChatMessages.EventId = chatMessages.EventsId;
             newChatMessages.Id = chatMessages.Id;
@@ -31,7 +31,7 @@ namespace Bl.Convertion
             newChatMessages.UserID = chatMessages.UserID;
             return newChatMessages;
         }
-        public static List<ChatMessagesDto> ConvertToDtoList(List<ChatMessage> c)
+        public static List<ChatMessagesDto> ConvertToDtoList(List<ChatMessages> c)
         {
             List<ChatMessagesDto> ChatMessages = new List<ChatMessagesDto>();
             c.ForEach(x =>
@@ -40,9 +40,9 @@ namespace Bl.Convertion
             });
             return ChatMessages;
         }
-        public static List<ChatMessage> convertToListChatMessages(List<ChatMessagesDto> c)
+        public static List<ChatMessages> convertToListChatMessages(List<ChatMessagesDto> c)
         {
-            List<ChatMessage> ChatMessages = new List<ChatMessage>();
+            List<ChatMessages> ChatMessages = new List<ChatMessages>();
             c.ForEach(x =>
             {
                 ChatMessages.Add(ConvertToChatMessages(x));

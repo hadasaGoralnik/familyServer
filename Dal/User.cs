@@ -17,12 +17,12 @@ namespace Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.ChatMessages = new HashSet<ChatMessage>();
-            this.Events = new HashSet<Event>();
-            this.Groups = new HashSet<Group>();
-            this.Menus = new HashSet<Menu>();
-            this.Messages = new HashSet<Message>();
-            this.Groups1 = new HashSet<Group>();
+            this.ChatMessages = new HashSet<ChatMessages>();
+            this.Events = new HashSet<Events>();
+            this.Groups = new HashSet<Groups>();
+            this.Menu = new HashSet<Menu>();
+            this.Message = new HashSet<Message>();
+            this.Groups1 = new HashSet<Groups>();
         }
     
         public int Id { get; set; }
@@ -39,16 +39,16 @@ namespace Dal
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChatMessage> ChatMessages { get; set; }
+        public virtual ICollection<ChatMessages> ChatMessages { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Event> Events { get; set; }
+        public virtual ICollection<Events> Events { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Group> Groups { get; set; }
+        public virtual ICollection<Groups> Groups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Menu> Menus { get; set; }
+        public virtual ICollection<Menu> Menu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Message> Messages { get; set; }
+        public virtual ICollection<Message> Message { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Group> Groups1 { get; set; }
+        public virtual ICollection<Groups> Groups1 { get; set; }
     }
 }

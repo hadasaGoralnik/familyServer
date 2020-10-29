@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Group = Dal.Group;
+using Group = Dal.Groups;
 
 namespace Bl.Convertion
 {
@@ -40,7 +40,7 @@ namespace Bl.Convertion
             return newgroups;
         }
      
-        public static List<GroupsDto> ConvertToDtoList(List<Dal.Group> g)
+        public static List<GroupsDto> ConvertToDtoList(List<Dal.Groups> g)
         {
             List<GroupsDto> Groups = new List<GroupsDto>();
             g.ForEach(x =>

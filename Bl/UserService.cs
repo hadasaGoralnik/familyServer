@@ -9,7 +9,7 @@ using Dto.Requests;
 
 namespace Bl
 {
-     public class UserService
+    public class UserService
     {
         //public static List<UserDto> gets()//מחזיר את כל המשתמשים
         //{
@@ -25,9 +25,9 @@ namespace Bl
         //}
         public static UserDto Login(LoginRequest request)
         {
-            using (familydbEntities2 db = new familydbEntities2())
+            using (familydbEntities3 db = new familydbEntities3())
             {
-                User find = db.Users.FirstOrDefault(x=>x.Password== request .Password& x.UserName== request.UserName);
+                User find = db.User.FirstOrDefault(x => x.Password == request.Password & x.UserName == request.UserName);
                 if (find == null)
                     return null;
                 return Convertion.UserConvertion.ConvertToDto(find);
@@ -51,17 +51,24 @@ namespace Bl
         //
         public static UserDto SignUp(SignUpRequest request)
         {
-            using (familydbEntities2 db = new familydbEntities2())
+            using (familydbEntities3 db = new familydbEntities3())
             {
                 User user = new User();
-                user = db.Users.Add(Convertion.UserConvertion.ConvertSignUpRequestToUser(request));
-                db.SaveChanges();
-                if (user == null)
+                User find = db.User.ToList().FirstOrDefault(u => u.Password == request.Password && u.UserName == request.UserName);
+                if (find == null)
+                {
+                    user = db.User.Add(Convertion.UserConvertion.ConvertSignUpRequestToUser(request));
+                    db.SaveChanges();
+                    if (user == null)
+                        return null;
+                }
+                else
+                {
                     return null;
+                }
                 return Convertion.UserConvertion.ConvertToDto(user);
             }
         }
-
 
     }
 }
