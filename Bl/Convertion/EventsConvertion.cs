@@ -24,7 +24,7 @@ namespace Bl.Convertion
             newEvent.Address = events.Address;
             newEvent.EventKindId = newEvent.EventKindId;
             newEvent.IsDairy = newEvent.IsDairy;
-            newEvent.Message =newEvent.Message;
+            newEvent.Message = newEvent.Message;
             newEvent.Picture = newEvent.Picture;
             newEvent.Repeat = events.Repeat;
             newEvent.ChatMessages = ChatMessagesConvertor.ConvertToDtoList(events.ChatMessages.ToList());

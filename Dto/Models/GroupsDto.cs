@@ -12,6 +12,6 @@ namespace Dto
         public string Name { get; set; }
         public int ManagerId { get; set; }
         public List<EventsDto> Events { get; set; }
-        public List<UserDto> User1 { get; set; }
+    
     }
 }
