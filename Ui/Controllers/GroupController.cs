@@ -6,29 +6,62 @@ using Dto;
 using Bl;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Dto.Requests;
 
 namespace Ui.Controllers
 {
-    [RoutePrefix("api/group")]
+
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class GroupController : ApiController
     {
-        [Route("getGroupsByUserId/{userId}")]
-        public IHttpActionResult GetGroupsByUserId(int userId)
+
+        [HttpGet]
+        [Route("api/group/getGroups/{UserId}")]
+ 
+        public IHttpActionResult getGroups(int UserId)
         {
-            return Ok( GroupService.Get(userId));
+            return Ok( GroupService.Get(UserId));
         }
-      
-        [HttpPost]//,data
-        public IHttpActionResult songPost(GroupsDto group)
+        [HttpGet]
+        [Route("api/group/GetUsers/{GroupId}")]
+
+        public IHttpActionResult GetUsers(int GroupId)
         {
+            return Ok(GroupService.GetUsers(GroupId));
+        }
+
+        [HttpPost]
+        public IHttpActionResult AddGroup(AddGroupRequest request)
+        {
+
+            GroupsDto group = GroupService.AddGroup(request);
             if (group == null)
                 return BadRequest();
-            group = GroupService.Sighin(group);
             if (group != null)
                 return Ok(group);
             return BadRequest();
         }
+        [HttpPost]
+        public IHttpActionResult DeleteGroup(DeleteGroupRequest request)
+        {
 
+            GroupsDto group = GroupService.DeleteGroup(request);
+            if (group == null)
+                return BadRequest();
+            if (group != null)
+                return Ok(group);
+            return BadRequest();
+        }
+        [HttpPost]
+        public IHttpActionResult DeleteUserFromGroup(DeleteUserFromGroupRequest request)
+        {
+
+            GroupsDto group = GroupService.DeleteUserFromGroup(request);
+            if (group == null)
+                return BadRequest();
+            if (group != null)
+                return Ok(group);
+            return BadRequest();
+        }
     }
 }
