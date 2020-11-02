@@ -19,7 +19,6 @@ namespace Bl.Convertion
             newgroups.Id = groups.Id;
             newgroups.ManagerId = groups.ManagerId;
             newgroups.Name = groups.Name;
-            newgroups.User1 = UserConvertion.ConvertToDtoList(groups.User1.ToList());
             newgroups.Events = EventsConvertion.ConvertToDtoList(groups.Events.ToList());
             return newgroups;
         }
@@ -29,7 +28,6 @@ namespace Bl.Convertion
             newgroups.Id = groups.Id;
             newgroups.ManagerId = groups.ManagerId;
             newgroups.Name = groups.Name;
-            newgroups.User1 = UserConvertion.convertToListUser(groups.User1);
             newgroups.Events = EventsConvertion.convertToListEvent(groups.Events);
             return newgroups;
         }
@@ -51,5 +49,13 @@ namespace Bl.Convertion
             });
             return Groups;
         }
+
+        public static Group ConvertAddGroupRequestToUser(AddGroupRequest request)
+        {
+            Group newgroups = new Group();
+            newgroups.ManagerId = request.ManagerId;
+            newgroups.Name = request.Name;
+            return newgroups;
+        }‏
     }
 }

@@ -260,7 +260,7 @@
     <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="familydbEntities2" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="familydbEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChatMessages" EntityType="Self.ChatMessages" />
     <EntitySet Name="Events" EntityType="Self.Events" />
     <EntitySet Name="EventsKind" EntityType="Self.EventsKind" />
