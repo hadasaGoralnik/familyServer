@@ -107,7 +107,30 @@ namespace Bl
                 return Convertion.UserConvertion.ConvertToDtoList(users);
             }
         }
-        
+        public static UserDto AddUserToGroup(AddUeserToGroupRequest request)
+        {
+            using (familydbEntities3 db = new familydbEntities3())
+            {
+                var group = db.Groups.Include(a => a.User).SingleOrDefault(a => a.Id == request.GroupId);
+                var user = db.User.FirstOrDefault(u => u.Mail == request.Mail);
+                if (user == null)
+                {
+                    user = db.User.Add(Convertion.GroupsConvertion.ConvertAddUeserToGroupToUser(request));
+                    db.SaveChanges();
+                    if (user == null)
+                        return null;
+                }   
+                if(group.User1.FirstOrDefault(u1 => u1.Mail == request.Mail )== null)
+                { group.User1.Add(user);
+                db.SaveChanges();
+                EmailSender.send(request.Mail, group.Name,user.Password,user.UserName,request.UserSender);
+                }
+                
+                
+                return Convertion.UserConvertion.ConvertToDto(user);
+
+            }
+        }
     }
 
 }

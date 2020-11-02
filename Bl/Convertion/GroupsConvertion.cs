@@ -58,5 +58,16 @@ namespace Bl.Convertion
             });
             return Groups;
         }
+        public static User ConvertAddUeserToGroupToUser(AddUeserToGroupRequest request)
+        {
+            User newPreson = new User(); 
+            newPreson.LastName = request.LastName;
+            newPreson.FirstName = request.FirstName;
+            newPreson.IsMale = request.IsMale;
+            newPreson.Mail = request.Mail;
+            newPreson.Password = request.Password;
+            newPreson.UserName = request.UserName;
+            return newPreson;
+        }
     }
 }

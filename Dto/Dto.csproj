@@ -52,6 +52,7 @@
     <Compile Include="Models\PictureDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\AddGroupRequest.cs" />
+    <Compile Include="Requests\AddUeserToGroupRequest.cs" />
     <Compile Include="Requests\DeleteGroupRequest.cs" />
     <Compile Include="Requests\DeleteUserFromGroupRequest.cs" />
     <Compile Include="Requests\GetGroupsRequest.cs" />
