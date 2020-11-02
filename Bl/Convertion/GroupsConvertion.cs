@@ -1,6 +1,7 @@
 ﻿using Bl.Convertion;
 using Dal;
 using Dto;
+using Dto.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Bl.Convertion
 {
     public class GroupsConvertion
     {
-        public static GroupsDto ConvertToDto(Groups groups)
+        public static GroupsDto ConvertToDto(Group groups)
         {
             GroupsDto newgroups = new GroupsDto();
             newgroups.Id = groups.Id;
@@ -28,9 +29,17 @@ namespace Bl.Convertion
             newgroups.Id = groups.Id;
             newgroups.ManagerId = groups.ManagerId;
             newgroups.Name = groups.Name;
-            newgroups.Events = EventsConvertion.convertToListEvent(groups.Events);
+              newgroups.Events = EventsConvertion.convertToListEvent(groups.Events);
             return newgroups;
         }
+        public static Group ConvertAddGroupRequestToUser(AddGroupRequest request)
+        {
+            Group newgroups = new Group();
+            newgroups.ManagerId = request.ManagerId;
+            newgroups.Name = request.Name;
+            return newgroups;
+        }
+     
         public static List<GroupsDto> ConvertToDtoList(List<Dal.Groups> g)
         {
             List<GroupsDto> Groups = new List<GroupsDto>();
@@ -49,13 +58,16 @@ namespace Bl.Convertion
             });
             return Groups;
         }
-
-        public static Group ConvertAddGroupRequestToUser(AddGroupRequest request)
+        public static User ConvertAddUeserToGroupToUser(AddUeserToGroupRequest request)
         {
-            Group newgroups = new Group();
-            newgroups.ManagerId = request.ManagerId;
-            newgroups.Name = request.Name;
-            return newgroups;
-        }‏
+            User newPreson = new User(); 
+            newPreson.LastName = request.LastName;
+            newPreson.FirstName = request.FirstName;
+            newPreson.IsMale = request.IsMale;
+            newPreson.Mail = request.Mail;
+            newPreson.Password = request.Password;
+            newPreson.UserName = request.UserName;
+            return newPreson;
+        }
     }
 }

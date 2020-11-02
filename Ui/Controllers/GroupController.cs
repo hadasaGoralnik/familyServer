@@ -63,6 +63,13 @@ namespace Ui.Controllers
                 return Ok(group);
             return BadRequest();
         }
-      
+        [HttpPost]
+        public IHttpActionResult AddUserToGroup(AddUeserToGroupRequest request)
+        {
+            GroupService.AddUserToGroup(request);
+
+            return Ok();
+        }
     }
+
 }
