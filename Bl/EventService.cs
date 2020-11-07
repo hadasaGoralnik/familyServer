@@ -11,7 +11,7 @@ namespace Bl
     {
         public static EventsDto PostEvent(EventsDto events)
         {
-            using (familydbEntities3 db = new familydbEntities3())
+            using (familydbEntities4 db = new familydbEntities4())
             {
                 //db.Groups.ToList().ForEach(x =>
                 //{
@@ -24,7 +24,7 @@ namespace Bl
         }
         public static List<EventsDto> Get(int group)
         {
-            using (familydbEntities3 db = new familydbEntities3())
+            using (familydbEntities4 db = new familydbEntities4())
             {
                 List<Events> find = new List<Events>();
                 find = db.Events.Where(x => x.GroupId == group).ToList();

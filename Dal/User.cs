@@ -19,10 +19,9 @@ namespace Dal
         {
             this.ChatMessages = new HashSet<ChatMessages>();
             this.Events = new HashSet<Events>();
-            this.Groups = new HashSet<Groups>();
             this.Menu = new HashSet<Menu>();
             this.Message = new HashSet<Message>();
-            this.Groups1 = new HashSet<Groups>();
+            this.Groups = new HashSet<Groups>();
         }
     
         public int Id { get; set; }
@@ -43,12 +42,10 @@ namespace Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Events> Events { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Groups> Groups { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Menu> Menu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Message> Message { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Groups> Groups1 { get; set; }
+        public virtual ICollection<Groups> Groups { get; set; }
     }
 }

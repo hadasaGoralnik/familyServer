@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dto.Requests
 {
-    public class SignUpRequest
+    public class UserRequest
     {
         public string UserName { get; set; }
         public DateTime Birthday { get; set; }

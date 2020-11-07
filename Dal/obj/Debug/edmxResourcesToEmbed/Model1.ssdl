@@ -39,7 +39,6 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
-    <Property Name="ManagerId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Menu">
     <Key>
@@ -158,18 +157,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Groups_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Groups">
-        <PropertyRef Name="ManagerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Menu_Events">
     <End Role="Events" Type="Self.Events" Multiplicity="1" />
     <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
@@ -283,10 +270,6 @@
     <AssociationSet Name="FK_Events_Person" Association="Self.FK_Events_Person">
       <End Role="User" EntitySet="User" />
       <End Role="Events" EntitySet="Events" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Groups_User" Association="Self.FK_Groups_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Groups" EntitySet="Groups" />
     </AssociationSet>
     <AssociationSet Name="FK_Menu_Events" Association="Self.FK_Menu_Events">
       <End Role="Events" EntitySet="Events" />

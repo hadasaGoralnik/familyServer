@@ -28,7 +28,7 @@ namespace Ui.Controllers
             return BadRequest();
         }
         [HttpPost]
-        public IHttpActionResult SignUp(SignUpRequest request)
+        public IHttpActionResult SignUp(UserRequest request)
         {
 
             UserDto user = UserService.SignUp(request);
@@ -38,6 +38,27 @@ namespace Ui.Controllers
                 return Ok(user);
             return BadRequest();
         }
+        [HttpPost]
+        public IHttpActionResult UpdateUser(UpdateUserRequest request)
+        {
 
+            UserDto user = UserService.UpdateUser(request);
+            if (user == null)
+                return BadRequest();
+            if (user != null)
+                return Ok(user);
+            return BadRequest();
+        }
+        [HttpPost]
+        public IHttpActionResult Unsubscribe(UnsuscribeRequest request)
+        {
+
+            UserDto user = UserService.Unsubscribe(request);
+            if (user == null)
+                return BadRequest();
+            if (user != null)
+                return Ok(user);
+            return BadRequest();
+        }
     }
 }

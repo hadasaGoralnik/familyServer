@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dto.Requests
 {
-    public class AddGroupRequest
+    public class UnsuscribeRequest
     {
-        public string Name { get; set; }
-
-     
+        public int UserId { get; set; }
     }
 }

@@ -57,7 +57,9 @@
     <Compile Include="Requests\DeleteUserFromGroupRequest.cs" />
     <Compile Include="Requests\GetGroupsRequest.cs" />
     <Compile Include="Requests\LoginRequest.cs" />
-    <Compile Include="Requests\SignUpRequest.cs" />
+    <Compile Include="Requests\UnsuscribeRequest.cs" />
+    <Compile Include="Requests\UpdateUserRequest.cs" />
+    <Compile Include="Requests\UserRequest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

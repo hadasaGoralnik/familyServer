@@ -75,7 +75,7 @@ namespace Bl.Convertion
             return newPreson;
         }
 
-        public static User ConvertSignUpRequestToUser(SignUpRequest request)
+        public static User ConvertUserRequestToUser(UserRequest request)
         {
             User newPreson = new User();
             newPreson.Birthday = Convert.ToDateTime(request.Birthday);
@@ -90,5 +90,22 @@ namespace Bl.Convertion
             newPreson.UserName = request.UserName;
             return newPreson;
         }
+        public static User ConvertUpdateUserRequestToUser(UpdateUserRequest request)
+        {
+            User newPreson = new User();
+            newPreson.Id = request.Id;
+            newPreson.Birthday = Convert.ToDateTime(request.Birthday);
+            newPreson.MarryDate = request.MarryDate;
+            newPreson.LastName = request.LastName;
+            newPreson.Address = request.Address;
+            newPreson.FirstName = request.FirstName;
+            newPreson.Image = request.Image;
+            newPreson.IsMale = request.IsMale;
+            newPreson.Mail = request.Mail;
+            newPreson.Password = request.Password;
+            newPreson.UserName = request.UserName;
+            return newPreson;
+        }
+        
     }
 }

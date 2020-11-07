@@ -49,10 +49,8 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ManagerId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Events" Relationship="Self.FK_Events_Groups" FromRole="Groups" ToRole="Events" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Groups_User" FromRole="Groups" ToRole="User" />
-    <NavigationProperty Name="User1" Relationship="Self.UserGoup" FromRole="Groups" ToRole="User" />
+    <NavigationProperty Name="User" Relationship="Self.UserGoup" FromRole="Groups" ToRole="User" />
   </EntityType>
   <EntityType Name="Menu">
     <Key>
@@ -109,10 +107,9 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="ChatMessages" Relationship="Self.FK_ChatMessages_User" FromRole="User" ToRole="ChatMessages" />
     <NavigationProperty Name="Events" Relationship="Self.FK_Events_Person" FromRole="User" ToRole="Events" />
-    <NavigationProperty Name="Groups" Relationship="Self.FK_Groups_User" FromRole="User" ToRole="Groups" />
     <NavigationProperty Name="Menu" Relationship="Self.FK_Menu_User" FromRole="User" ToRole="Menu" />
     <NavigationProperty Name="Message" Relationship="Self.FK_Message_User" FromRole="User" ToRole="Message" />
-    <NavigationProperty Name="Groups1" Relationship="Self.UserGoup" FromRole="User" ToRole="Groups" />
+    <NavigationProperty Name="Groups" Relationship="Self.UserGoup" FromRole="User" ToRole="Groups" />
   </EntityType>
   <Association Name="FK_ChatMessages_Events">
     <End Role="Events" Type="Self.Events" Multiplicity="1" />
@@ -210,18 +207,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Groups_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Groups">
-        <PropertyRef Name="ManagerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Menu_User">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
@@ -250,7 +235,7 @@
     <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="familydbEntities3" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="familydbEntities4" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChatMessages" EntityType="Self.ChatMessages" />
     <EntitySet Name="Events" EntityType="Self.Events" />
     <EntitySet Name="EventsKind" EntityType="Self.EventsKind" />
@@ -290,10 +275,6 @@
     <AssociationSet Name="FK_Picture_Events" Association="Self.FK_Picture_Events">
       <End Role="Events" EntitySet="Events" />
       <End Role="Picture" EntitySet="Picture" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Groups_User" Association="Self.FK_Groups_User">
-      <End Role="User" EntitySet="User" />
-      <End Role="Groups" EntitySet="Groups" />
     </AssociationSet>
     <AssociationSet Name="FK_Menu_User" Association="Self.FK_Menu_User">
       <End Role="User" EntitySet="User" />
