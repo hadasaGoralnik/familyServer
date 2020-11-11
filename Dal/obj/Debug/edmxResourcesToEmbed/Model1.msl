@@ -5,10 +5,10 @@
       <EntityTypeMapping TypeName="familydbModel.ChatMessages">
         <MappingFragment StoreEntitySet="ChatMessages">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="Date" ColumnName="Date" />
-          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -26,6 +26,7 @@
           <ScalarProperty Name="GroupId" ColumnName="GroupId" />
           <ScalarProperty Name="Repeat" ColumnName="Repeat" />
           <ScalarProperty Name="EventKindId" ColumnName="EventKindId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -42,6 +43,7 @@
         <MappingFragment StoreEntitySet="Groups">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -91,7 +93,6 @@
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
           <ScalarProperty Name="IsMale" ColumnName="IsMale" />
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Password" ColumnName="Password" />

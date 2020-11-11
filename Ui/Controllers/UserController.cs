@@ -60,5 +60,12 @@ namespace Ui.Controllers
                 return Ok(user);
             return BadRequest();
         }
+        [HttpGet]
+        [Route("api/user/GetUserById/{UserId}")]
+
+        public IHttpActionResult GetUserById(int UserId)
+        {
+            return Ok(UserService.GetUserById(UserId));
+        }
     }
 }

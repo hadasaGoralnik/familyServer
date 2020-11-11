@@ -27,7 +27,6 @@ namespace Bl.Convertion
             newEvent.Message = newEvent.Message;
             newEvent.Picture = newEvent.Picture;
             newEvent.Repeat = events.Repeat;
-            newEvent.ChatMessages = ChatMessagesConvertor.ConvertToDtoList(events.ChatMessages.ToList());
             newEvent.Menu = MenuConvertion.ConvertToDtoList(events.Menu.ToList());
             return newEvent;
         }
@@ -40,15 +39,13 @@ namespace Bl.Convertion
             newEvent.Id = events.Id;
             newEvent.Promoter = events.Promoter;
             newEvent.City = events.City;
-            newEvent.Description = events.Description;
-            newEvent.GroupId = events.GroupId;
+            newEvent.Description = events.Description; 
             newEvent.Address = events.Address;
             newEvent.EventKindId = newEvent.EventKindId;
             newEvent.IsDairy = newEvent.IsDairy;
             newEvent.Message = newEvent.Message;
             newEvent.Picture = newEvent.Picture;
             newEvent.Repeat = events.Repeat;
-            newEvent.ChatMessages = ChatMessagesConvertor.convertToListChatMessages(events.ChatMessages);
             newEvent.Menu = MenuConvertion.convertToListMenu(events.Menu);
             return newEvent;
         }

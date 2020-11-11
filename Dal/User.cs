@@ -32,7 +32,6 @@ namespace Dal
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
-        public bool IsEnable { get; set; }
         public bool IsMale { get; set; }
         public string Image { get; set; }
         public string Password { get; set; }

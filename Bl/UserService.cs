@@ -69,7 +69,7 @@ namespace Bl
             using (familydbEntities4 db = new familydbEntities4())
             {
                 var usr = db.User.Include(a => a.Groups).SingleOrDefault(a => a.Id == request.UserId);
-
+           
                 if (usr != null)
                 {
                     foreach (var grp in usr.Groups
@@ -89,6 +89,17 @@ namespace Bl
 
             }
         }
+        public static UserDto GetUserById(int userId)
+        {
+            using (familydbEntities4 db = new familydbEntities4())
+            {
+                User find = db.User.FirstOrDefault(x => x.Id == userId);
+                if (find == null)
+                    return null;
+                return Convertion.UserConvertion.ConvertToDto(find);
+            }
+        }
+        
     }
 
 }

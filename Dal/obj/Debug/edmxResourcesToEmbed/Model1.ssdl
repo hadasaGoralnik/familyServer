@@ -5,26 +5,27 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="UserID" Type="int" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
-    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Events">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Address" Type="nvarchar" MaxLength="10" />
-    <Property Name="City" Type="nvarchar" MaxLength="10" />
+    <Property Name="Address" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="City" Type="nvarchar" MaxLength="15" />
     <Property Name="Date" Type="date" Nullable="false" />
-    <Property Name="Description" Type="text" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
     <Property Name="Promoter" Type="int" Nullable="false" />
-    <Property Name="Comment" Type="text" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="50" />
     <Property Name="IsDairy" Type="bit" />
-    <Property Name="GroupId" Type="int" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
     <Property Name="Repeat" Type="int" />
     <Property Name="EventKindId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="EventsKind">
     <Key>
@@ -39,6 +40,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Image" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Menu">
     <Key>
@@ -84,7 +86,6 @@
     <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="50" />
-    <Property Name="IsEnable" Type="bit" Nullable="false" />
     <Property Name="IsMale" Type="bit" Nullable="false" />
     <Property Name="Image" Type="nvarchar(max)" />
     <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -97,19 +98,19 @@
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="GroupId" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK_ChatMessages_Events">
-    <End Role="Events" Type="Self.Events" Multiplicity="1" />
+  <Association Name="FK__ChatMessa__Group__5DCAEF64">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
     <End Role="ChatMessages" Type="Self.ChatMessages" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Events">
+      <Principal Role="Groups">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ChatMessages">
-        <PropertyRef Name="EventId" />
+        <PropertyRef Name="GroupId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ChatMessages_User">
+  <Association Name="FK__ChatMessa__UserI__5CD6CB2B">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="ChatMessages" Type="Self.ChatMessages" Multiplicity="*" />
     <ReferentialConstraint>
@@ -117,7 +118,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="ChatMessages">
-        <PropertyRef Name="UserID" />
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -134,7 +135,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Events_Groups">
-    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
     <End Role="Events" Type="Self.Events" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Groups">
@@ -251,11 +252,11 @@
     <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserGoup" EntityType="Self.UserGoup" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_ChatMessages_Events" Association="Self.FK_ChatMessages_Events">
-      <End Role="Events" EntitySet="Events" />
+    <AssociationSet Name="FK__ChatMessa__Group__5DCAEF64" Association="Self.FK__ChatMessa__Group__5DCAEF64">
+      <End Role="Groups" EntitySet="Groups" />
       <End Role="ChatMessages" EntitySet="ChatMessages" />
     </AssociationSet>
-    <AssociationSet Name="FK_ChatMessages_User" Association="Self.FK_ChatMessages_User">
+    <AssociationSet Name="FK__ChatMessa__UserI__5CD6CB2B" Association="Self.FK__ChatMessa__UserI__5CD6CB2B">
       <End Role="User" EntitySet="User" />
       <End Role="ChatMessages" EntitySet="ChatMessages" />
     </AssociationSet>

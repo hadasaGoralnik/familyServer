@@ -35,6 +35,8 @@ namespace Bl
             {
 
                 Groups group = db.Groups.Add(Convertion.GroupsConvertion.ConvertAddGroupRequestToUser(request));
+                User user = db.User.FirstOrDefault(u => u.Id == request.UserId);
+                group.User.Add(user);
                 db.SaveChanges();
                 if (group == null)
                     return null;

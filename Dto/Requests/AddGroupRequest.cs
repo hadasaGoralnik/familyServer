@@ -9,7 +9,7 @@ namespace Dto.Requests
     public class AddGroupRequest
     {
         public string Name { get; set; }
+        public int UserId { get; set; }
 
-     
     }
 }
