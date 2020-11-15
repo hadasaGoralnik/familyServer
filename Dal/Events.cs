@@ -17,7 +17,6 @@ namespace Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Events()
         {
-            this.ChatMessages = new HashSet<ChatMessages>();
             this.Menu = new HashSet<Menu>();
             this.Message = new HashSet<Message>();
             this.Picture = new HashSet<Picture>();
@@ -31,12 +30,11 @@ namespace Dal
         public int Promoter { get; set; }
         public string Comment { get; set; }
         public Nullable<bool> IsDairy { get; set; }
-        public Nullable<int> GroupId { get; set; }
+        public int GroupId { get; set; }
         public Nullable<int> Repeat { get; set; }
         public int EventKindId { get; set; }
+        public string Title { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChatMessages> ChatMessages { get; set; }
         public virtual EventsKind EventsKind { get; set; }
         public virtual Groups Groups { get; set; }
         public virtual User User { get; set; }

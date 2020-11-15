@@ -15,3 +15,9 @@ C:\Users\User\Desktop\ציפי\תכנות\FinalprojectClient\familyServer\family
 C:\Users\User\Desktop\ציפי\תכנות\FinalprojectClient\familyServer\familyServer\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\ציפי\תכנות\FinalprojectClient\familyServer\familyServer\Dto\obj\Debug\Dto.dll
 C:\Users\User\Desktop\ציפי\תכנות\FinalprojectClient\familyServer\familyServer\Dto\obj\Debug\Dto.pdb
+C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dto\bin\Debug\Dto.dll
+C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dto\bin\Debug\Dto.pdb
+C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dto\obj\Debug\Dto.csprojAssemblyReference.cache
+C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dto\obj\Debug\Dto.dll
+C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dto\obj\Debug\Dto.pdb

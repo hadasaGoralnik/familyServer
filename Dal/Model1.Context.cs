@@ -13,10 +13,10 @@ namespace Dal
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class familydbEntities3 : DbContext
+    public partial class familydbEntities8 : DbContext
     {
-        public familydbEntities3()
-            : base("name=familydbEntities3")
+        public familydbEntities8()
+            : base("name=familydbEntities8")
         {
         }
     
@@ -32,7 +32,6 @@ namespace Dal
         public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<Picture> Picture { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

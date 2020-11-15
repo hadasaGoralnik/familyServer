@@ -15,20 +15,14 @@ namespace Bl.Convertion
         {
             ChatMessagesDto newChatMessages = new ChatMessagesDto();
             newChatMessages.Date = chatMessages.Date;
-            newChatMessages.EventsId = chatMessages.EventId;
             newChatMessages.Id = chatMessages.Id;
-            newChatMessages.Title = chatMessages.Title;
-            newChatMessages.UserID = chatMessages.UserID;
             return newChatMessages;
         }
         public static ChatMessages ConvertToChatMessages(ChatMessagesDto chatMessages)
         {
             ChatMessages newChatMessages = new ChatMessages();
             newChatMessages.Date = chatMessages.Date;
-            newChatMessages.EventId = chatMessages.EventsId;
             newChatMessages.Id = chatMessages.Id;
-            newChatMessages.Title = chatMessages.Title;
-            newChatMessages.UserID = chatMessages.UserID;
             return newChatMessages;
         }
         public static List<ChatMessagesDto> ConvertToDtoList(List<ChatMessages> c)

@@ -18,14 +18,14 @@ namespace Dto
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
-        public bool IsEnable { get; set; }
         public bool IsMale { get; set; }
         public string Image { get; set; }
         public string Password { get; set; }
-        public List<ChatMessagesDto> ChatMessages { get; set; }
-        public List<EventsDto> Events { get; set; }
-        public List<MenuDto> Menu { get; set; }
-        public List<MessageDto> Message { get; set; }
-   
+        public virtual List<ChatMessagesDto> ChatMessages { get; set; }
+        public virtual List<EventsDto> Events { get; set; }
+        public virtual List<MenuDto> Menu { get; set; }
+        public virtual List<MessageDto> Message { get; set; }
+        public virtual List<GroupsDto> Groups { get; set; }
+
     }
 }

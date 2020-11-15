@@ -16,12 +16,12 @@ namespace Dto
         public int Promoter { get; set; }
         public string Comment { get; set; }
         public Nullable<bool> IsDairy { get; set; }
-        public Nullable<int> GroupId { get; set; }
+        public int GroupId { get; set; }
         public Nullable<int> Repeat { get; set; }
         public int EventKindId { get; set; }
-        public List<ChatMessagesDto> ChatMessages { get; set; }
-        public List<MenuDto> Menu { get; set; }
-        public List<MessageDto> Message { get; set; }
-        public List<PictureDto> Picture { get; set; }
+        public string Title { get; set; }
+        public virtual EventsKindDto EventsKind { get; set; }
+        public virtual GroupsDto Groups { get; set; }
+        public virtual UserDto User { get; set; }
     }
 }

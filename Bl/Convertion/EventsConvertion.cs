@@ -11,7 +11,6 @@ namespace Bl.Convertion
     {
         public static EventsDto ConvertToDto(Events events)
         {
-            
             EventsDto newEvent = new EventsDto();
             newEvent.Comment = events.Comment;
             newEvent.Date = events.Date;
@@ -24,11 +23,11 @@ namespace Bl.Convertion
             newEvent.Address = events.Address;
             newEvent.EventKindId = newEvent.EventKindId;
             newEvent.IsDairy = newEvent.IsDairy;
-            newEvent.Message = newEvent.Message;
-            newEvent.Picture = newEvent.Picture;
             newEvent.Repeat = events.Repeat;
-            newEvent.ChatMessages = ChatMessagesConvertor.ConvertToDtoList(events.ChatMessages.ToList());
-            newEvent.Menu = MenuConvertion.ConvertToDtoList(events.Menu.ToList());
+            newEvent.Title = events.Title;
+            newEvent.User = newEvent.User == null? new UserDto(): UserConvertion.ConvertToDto(events.User);
+            newEvent.EventsKind = newEvent.EventsKind == null ? new EventsKindDto() : EventsKindConvertion.ConvertToDto(events.EventsKind);
+            newEvent.Groups = newEvent.Groups == null ? new GroupsDto() : GroupsConvertion.ConvertToDto(events.Groups);
             return newEvent;
         }
         public static Events ConvertToEvent(EventsDto events)
@@ -48,8 +47,10 @@ namespace Bl.Convertion
             newEvent.Message = newEvent.Message;
             newEvent.Picture = newEvent.Picture;
             newEvent.Repeat = events.Repeat;
-            newEvent.ChatMessages = ChatMessagesConvertor.convertToListChatMessages(events.ChatMessages);
-            newEvent.Menu = MenuConvertion.convertToListMenu(events.Menu);
+            newEvent.Title = events.Title;
+            newEvent.User = newEvent.User == null ? new User() : UserConvertion.ConvertToUser(events.User);
+            newEvent.EventsKind = newEvent.EventsKind == null ? new EventsKind() : EventsKindConvertion.ConvertToEventsKind(events.EventsKind);
+            newEvent.Groups = newEvent.Groups == null ? new Groups() : GroupsConvertion.ConvertToGroups(events.Groups);
             return newEvent;
         }
         public static List<EventsDto> ConvertToDtoList(List<Events> e)

@@ -9,9 +9,9 @@ namespace Dto.Models
     public class ChatMessagesDto
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public int UserID { get; set; }
+        public string Body { get; set; }
+        public int UserId { get; set; }
+        public int GroupId { get; set; }
         public System.DateTime Date { get; set; }
-        public int EventsId { get; set; }
     }
 }

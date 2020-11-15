@@ -23,7 +23,6 @@ namespace Bl.Convertion
             newPreson.Events = EventsConvertion.ConvertToDtoList(User.Events.ToList());
             newPreson.FirstName = User.FirstName;
             newPreson.Image = User.Image;
-            newPreson.IsEnable = User.IsEnable;
             newPreson.IsMale = User.IsMale;
             newPreson.Mail = User.Mail;
             newPreson.Menu = MenuConvertion.ConvertToDtoList(User.Menu.ToList());
@@ -65,7 +64,6 @@ namespace Bl.Convertion
             newPreson.Events = EventsConvertion.convertToListEvent(User.Events);
             newPreson.FirstName = User.FirstName;
             newPreson.Image = User.Image;
-            newPreson.IsEnable = User.IsEnable;
             newPreson.IsMale = User.IsMale;
             newPreson.Mail = User.Mail;
             newPreson.Menu = MenuConvertion.convertToListMenu(User.Menu);
