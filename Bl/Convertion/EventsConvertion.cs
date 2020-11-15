@@ -11,8 +11,28 @@ namespace Bl.Convertion
     {
         public static EventsDto ConvertToDto(Events events)
         {
-            
             EventsDto newEvent = new EventsDto();
+            newEvent.Comment = events.Comment;
+            newEvent.Date = events.Date;
+            newEvent.Description = events.Description;
+            newEvent.Id = events.Id;
+            newEvent.Promoter = events.Promoter;
+            newEvent.City = events.City;
+            newEvent.Description = events.Description;
+            newEvent.GroupId = events.GroupId;
+            newEvent.Address = events.Address;
+            newEvent.EventKindId = newEvent.EventKindId;
+            newEvent.IsDairy = newEvent.IsDairy;
+            newEvent.Repeat = events.Repeat;
+            newEvent.Title = events.Title;
+            newEvent.User = newEvent.User == null? new UserDto(): UserConvertion.ConvertToDto(events.User);
+            newEvent.EventsKind = newEvent.EventsKind == null ? new EventsKindDto() : EventsKindConvertion.ConvertToDto(events.EventsKind);
+            newEvent.Groups = newEvent.Groups == null ? new GroupsDto() : GroupsConvertion.ConvertToDto(events.Groups);
+            return newEvent;
+        }
+        public static Events ConvertToEvent(EventsDto events)
+        {
+            Events newEvent = new Events();
             newEvent.Comment = events.Comment;
             newEvent.Date = events.Date;
             newEvent.Description = events.Description;
@@ -27,26 +47,10 @@ namespace Bl.Convertion
             newEvent.Message = newEvent.Message;
             newEvent.Picture = newEvent.Picture;
             newEvent.Repeat = events.Repeat;
-            newEvent.Menu = MenuConvertion.ConvertToDtoList(events.Menu.ToList());
-            return newEvent;
-        }
-        public static Events ConvertToEvent(EventsDto events)
-        {
-            Events newEvent = new Events();
-            newEvent.Comment = events.Comment;
-            newEvent.Date = events.Date;
-            newEvent.Description = events.Description;
-            newEvent.Id = events.Id;
-            newEvent.Promoter = events.Promoter;
-            newEvent.City = events.City;
-            newEvent.Description = events.Description; 
-            newEvent.Address = events.Address;
-            newEvent.EventKindId = newEvent.EventKindId;
-            newEvent.IsDairy = newEvent.IsDairy;
-            newEvent.Message = newEvent.Message;
-            newEvent.Picture = newEvent.Picture;
-            newEvent.Repeat = events.Repeat;
-            newEvent.Menu = MenuConvertion.convertToListMenu(events.Menu);
+            newEvent.Title = events.Title;
+            newEvent.User = newEvent.User == null ? new User() : UserConvertion.ConvertToUser(events.User);
+            newEvent.EventsKind = newEvent.EventsKind == null ? new EventsKind() : EventsKindConvertion.ConvertToEventsKind(events.EventsKind);
+            newEvent.Groups = newEvent.Groups == null ? new Groups() : GroupsConvertion.ConvertToGroups(events.Groups);
             return newEvent;
         }
         public static List<EventsDto> ConvertToDtoList(List<Events> e)

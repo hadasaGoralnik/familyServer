@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="familydbModelStoreContainer" CdmEntityContainer="familydbEntities4">
+  <EntityContainerMapping StorageEntityContainer="familydbModelStoreContainer" CdmEntityContainer="familydbEntities8">
     <EntitySetMapping Name="ChatMessages">
       <EntityTypeMapping TypeName="familydbModel.ChatMessages">
         <MappingFragment StoreEntitySet="ChatMessages">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Body" ColumnName="Body" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

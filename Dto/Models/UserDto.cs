@@ -21,10 +21,11 @@ namespace Dto
         public bool IsMale { get; set; }
         public string Image { get; set; }
         public string Password { get; set; }
-        public List<ChatMessagesDto> ChatMessages { get; set; }
-        public List<EventsDto> Events { get; set; }
-        public List<MenuDto> Menu { get; set; }
-        public List<MessageDto> Message { get; set; }
-   
+        public virtual List<ChatMessagesDto> ChatMessages { get; set; }
+        public virtual List<EventsDto> Events { get; set; }
+        public virtual List<MenuDto> Menu { get; set; }
+        public virtual List<MessageDto> Message { get; set; }
+        public virtual List<GroupsDto> Groups { get; set; }
+
     }
 }
