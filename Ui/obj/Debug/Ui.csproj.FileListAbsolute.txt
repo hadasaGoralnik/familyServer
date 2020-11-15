@@ -386,3 +386,7 @@ C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer
 C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Ui\obj\Debug\Ui.csproj.CopyComplete
 C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Ui\obj\Debug\Ui.dll
 C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Ui\obj\Debug\Ui.pdb
+C:\Users\maayan\Desktop\GitHub\familyServer\Ui\obj\Debug\Ui.csprojAssemblyReference.cache
+C:\Users\maayan\Desktop\GitHub\familyServer\Ui\obj\Debug\Ui.csproj.CoreCompileInputs.cache
+C:\Users\maayan\Desktop\GitHub\familyServer\Ui\obj\Debug\Ui.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Ui\obj\Debug\Ui.pdb

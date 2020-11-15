@@ -45,3 +45,15 @@ C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer
 C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dal\obj\Debug\Dal.csproj.CopyComplete
 C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dal\obj\Debug\Dal.dll
 C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dal\obj\Debug\Dal.pdb
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\bin\Debug\Dal.dll.config
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\bin\Debug\Dal.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\bin\Debug\Dal.pdb
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\bin\Debug\EntityFramework.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\bin\Debug\EntityFramework.xml
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\obj\Debug\Dal.csprojAssemblyReference.cache
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\obj\Debug\Dal.csproj.CopyComplete
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\obj\Debug\Dal.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Dal\obj\Debug\Dal.pdb
