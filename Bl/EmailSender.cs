@@ -35,9 +35,9 @@ namespace Bl
                 try
                 {
                     client.Send(mm);
-                    return "המייל נשלח בהצלחה";
+                    return "The email was sent successfully";
                 }
-                catch (Exception ex)
+                catch 
                 {
                     return mm.Body;
                 }

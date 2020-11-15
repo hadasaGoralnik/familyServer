@@ -1,8 +1,13 @@
-﻿using System;
+﻿using Bl;
+using Dto.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Unity;
+using Unity.Lifetime;
+using Unity.WebApi;
 
 namespace Ui
 {
@@ -10,6 +15,9 @@ namespace Ui
     {
         public static void Register(HttpConfiguration config)
         {
+            var container = new UnityContainer();
+            container.RegisterType<IChatService, ChatService>(new ContainerControlledLifetimeManager());
+            config.DependencyResolver = new UnityDependencyResolver(container);
             // Web API configuration and services
             EnableCrossSiteRequests(config);
             // Web API routes

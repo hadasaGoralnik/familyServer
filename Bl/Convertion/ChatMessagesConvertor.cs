@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dal;
 using Dto;
 using Dto.Models;
+using Dto.Requests;
 
 namespace Bl.Convertion
 {
@@ -16,6 +17,9 @@ namespace Bl.Convertion
             ChatMessagesDto newChatMessages = new ChatMessagesDto();
             newChatMessages.Date = chatMessages.Date;
             newChatMessages.Id = chatMessages.Id;
+            newChatMessages.GroupId = chatMessages.GroupId;
+            newChatMessages.Body = chatMessages.Body;
+            newChatMessages.UserId = chatMessages.UserId;
             return newChatMessages;
         }
         public static ChatMessages ConvertToChatMessages(ChatMessagesDto chatMessages)
@@ -23,6 +27,7 @@ namespace Bl.Convertion
             ChatMessages newChatMessages = new ChatMessages();
             newChatMessages.Date = chatMessages.Date;
             newChatMessages.Id = chatMessages.Id;
+            newChatMessages.GroupId = chatMessages.GroupId;
             return newChatMessages;
         }
         public static List<ChatMessagesDto> ConvertToDtoList(List<ChatMessages> c)
@@ -43,5 +48,15 @@ namespace Bl.Convertion
             });
             return ChatMessages;
         }
+        public static ChatMessages ConvertAddChatMessageRequestToChatMessages(AddChatMessageRequest request)
+        {
+            ChatMessages newChatMessages = new ChatMessages();
+            newChatMessages.Date = DateTime.Now;
+            newChatMessages.GroupId = request.GroupId;
+            newChatMessages.UserId = request.UserID;
+            newChatMessages.Body = request.Body;
+            return newChatMessages;
+        }
+        
     }
 }

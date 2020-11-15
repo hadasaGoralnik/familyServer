@@ -10,8 +10,8 @@ namespace Dto.Models
     {
         public int Id { get; set; }
         public string Body { get; set; }
-        public int UserId { get; set; }
         public int GroupId { get; set; }
+        public int UserId { get; set; }
         public System.DateTime Date { get; set; }
     }
 }
