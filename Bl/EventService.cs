@@ -34,16 +34,44 @@ namespace Bl
                 return Convertion.EventsConvertion.ConvertToDto(find);
             }
         }
+        public static EventsDto CreateEvents(EventsDto events)
+        {
 
-        public static List<MenuDto> GetMenusByEventId(int eventId)
+            using (familydbEntities8 db = new familydbEntities8())
+            {
+                Events events1 = new Events();
+                events1 = db.Events.Add(Convertion.EventsConvertion.ConvertToEvent(events));
+                db.SaveChanges();
+                if (events1 == null)
+                    return null;
+                return Convertion.EventsConvertion.ConvertToDto(events1);
+            }
+        }
+
+        public static void SaveImage(int id, string fileName, string name)
         {
             using (familydbEntities8 db = new familydbEntities8())
             {
-                List<Menu> find = new List<Menu>();
-                find = db.Menu.Where(x => x.EventId == eventId).ToList();
+                Events find = new Events();
+                var pic = new Picture() {EventId=id,Image= fileName, Name=name };
+                db.Picture.Add(pic);
+                db.SaveChanges();
+            }
+        }
+
+        public static List<EventsKindDto> GetAllEventsKind()
+        {
+            using (familydbEntities8 db = new familydbEntities8())
+            {
+                List<EventsKindDto> find = new List<EventsKindDto>();
+                var events= db.EventsKind.ToList();
+                foreach (var item in events)
+                {
+                    find.Add(Convertion.EventsKindConvertion.ConvertToDto(item))  ;
+                }  
                 if (find == null)
                     return null;
-                return Convertion.MenuConvertion.ConvertToDtoList(find).ToList();
+                return find;
             }
         }
 

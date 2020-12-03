@@ -21,7 +21,7 @@ namespace Bl
 
         public static ChatMessagesDto AddChatMessage(AddChatMessageRequest request)
         {
-            using (familydbEntities4 db = new familydbEntities4())
+            using (familydbEntities8 db = new familydbEntities8())
             {
 
                 ChatMessages msg = db.ChatMessages.Add(Convertion.ChatMessagesConvertor.ConvertAddChatMessageRequestToChatMessages(request));
@@ -33,7 +33,7 @@ namespace Bl
         }
         public static List<ChatMessagesDto> GetMessages(int groupId)
         {
-            using (familydbEntities4 db = new familydbEntities4())
+            using (familydbEntities8 db = new familydbEntities8())
             {
                 // Groups find = new Groups();
                 var msgIds = (from msg in db.ChatMessages

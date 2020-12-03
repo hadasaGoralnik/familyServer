@@ -12,7 +12,6 @@ using Dto.Requests;
 namespace Ui.Controllers
 {
 
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class UserController : ApiController
     {
 

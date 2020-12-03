@@ -18,6 +18,7 @@ namespace Dal
         public familydbEntities8()
             : base("name=familydbEntities8")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

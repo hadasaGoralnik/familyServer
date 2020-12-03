@@ -31,12 +31,12 @@ namespace Ui
         }
         private static void EnableCrossSiteRequests(HttpConfiguration config)
         {
-            var cors = new EnableCorsAttribute(
-                origins: "*",
-                headers: "*",
-                methods: "*");
+            //var cors = new EnableCorsAttribute(
+            //    origins: "*",
+            //    headers: "*",
+            //    methods: "*");
 
-            config.EnableCors(cors);
+          //  config.EnableCors(cors);
         }
     }
 }

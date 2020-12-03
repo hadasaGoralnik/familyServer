@@ -33,13 +33,12 @@ namespace Bl
         {
             using (familydbEntities8 db = new familydbEntities8())
             {
-
                 Groups group = db.Groups.Add(Convertion.GroupsConvertion.ConvertAddGroupRequestToUser(request));
+                User user = db.User.FirstOrDefault(u => u.Id == request.UserId);
+                group.User.Add(user);
                 db.SaveChanges();
                 if (group == null)
                     return null;
-                User user = db.User.FirstOrDefault(x => x.Id == request.ManagerId);
-                group.User.Add(user);
                 db.SaveChanges();
                 return Convertion.GroupsConvertion.ConvertToDto(group);
             }

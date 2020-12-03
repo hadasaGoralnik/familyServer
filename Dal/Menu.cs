@@ -21,7 +21,6 @@ namespace Dal
         public int EventId { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<int> Cost { get; set; }
-    
         public virtual Events Events { get; set; }
         public virtual User User { get; set; }
     }
