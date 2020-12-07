@@ -70,3 +70,16 @@ C:\Users\maayan\Desktop\GitHub\familyServer\Bl\obj\Debug\Bl.csprojAssemblyRefere
 C:\Users\maayan\Desktop\GitHub\familyServer\Bl\obj\Debug\Bl.csproj.CoreCompileInputs.cache
 C:\Users\maayan\Desktop\GitHub\familyServer\Bl\obj\Debug\Bl.dll
 C:\Users\maayan\Desktop\GitHub\familyServer\Bl\obj\Debug\Bl.pdb
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\Bl.dll.config
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\Bl.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\Bl.pdb
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\Dal.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\Dto.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\EntityFramework.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\Dal.pdb
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\Dal.dll.config
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\Dto.pdb
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\EntityFramework.xml
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\maayan\Desktop\GitHub\familyServer\Bl\obj\Debug\Bl.csproj.CopyComplete

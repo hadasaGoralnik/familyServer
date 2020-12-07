@@ -21,3 +21,9 @@ C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer
 C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dto\obj\Debug\Dto.dll
 C:\Users\User\Desktop\ציפי\תכנות\Finalproject\familyServer\familyServer\Dto\obj\Debug\Dto.pdb
+C:\Users\maayan\Desktop\GitHub\familyServer\Dto\bin\Debug\Dto.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Dto\bin\Debug\Dto.pdb
+C:\Users\maayan\Desktop\GitHub\familyServer\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
+C:\Users\maayan\Desktop\GitHub\familyServer\Dto\obj\Debug\Dto.dll
+C:\Users\maayan\Desktop\GitHub\familyServer\Dto\obj\Debug\Dto.pdb
+C:\Users\maayan\Desktop\GitHub\familyServer\Dto\obj\Debug\Dto.csprojAssemblyReference.cache

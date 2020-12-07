@@ -15,10 +15,10 @@ namespace Dal
     public partial class ChatMessages
     {
         public int Id { get; set; }
-        public System.DateTime Date { get; set; }
         public string Body { get; set; }
         public int UserId { get; set; }
         public int GroupId { get; set; }
+        public System.DateTime Date { get; set; }
     
         public virtual Groups Groups { get; set; }
         public virtual User User { get; set; }

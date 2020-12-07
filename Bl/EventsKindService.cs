@@ -11,7 +11,7 @@ namespace Bl
     {
         public static List<EventsKindDto> GetEventsKinds()
         {
-            using (familydbEntities4 db = new familydbEntities4())
+            using (familydbEntities5 db = new familydbEntities5())
             {
 
                List<EventsKindDto>  eventsKinds = new List<EventsKindDto>();

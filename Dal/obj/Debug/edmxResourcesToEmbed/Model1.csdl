@@ -9,8 +9,8 @@
     <Property Name="UserId" Type="Int32" Nullable="false" />
     <Property Name="GroupId" Type="Int32" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Groups" Relationship="Self.FK__ChatMessa__Group__47DBAE45" FromRole="ChatMessages" ToRole="Groups" />
-    <NavigationProperty Name="User" Relationship="Self.FK__ChatMessa__UserI__48CFD27E" FromRole="ChatMessages" ToRole="User" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK__ChatMessa__Group__5DCAEF64" FromRole="ChatMessages" ToRole="Groups" />
+    <NavigationProperty Name="User" Relationship="Self.FK__ChatMessa__UserI__5CD6CB2B" FromRole="ChatMessages" ToRole="User" />
   </EntityType>
   <EntityType Name="Events">
     <Key>
@@ -50,7 +50,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ChatMessages" Relationship="Self.FK__ChatMessa__Group__47DBAE45" FromRole="Groups" ToRole="ChatMessages" />
+    <NavigationProperty Name="ChatMessages" Relationship="Self.FK__ChatMessa__Group__5DCAEF64" FromRole="Groups" ToRole="ChatMessages" />
     <NavigationProperty Name="Events" Relationship="Self.FK_Events_Groups" FromRole="Groups" ToRole="Events" />
     <NavigationProperty Name="User" Relationship="Self.UserGoup" FromRole="Groups" ToRole="User" />
   </EntityType>
@@ -106,13 +106,13 @@
     <Property Name="IsMale" Type="Boolean" Nullable="false" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="ChatMessages" Relationship="Self.FK__ChatMessa__UserI__48CFD27E" FromRole="User" ToRole="ChatMessages" />
+    <NavigationProperty Name="ChatMessages" Relationship="Self.FK__ChatMessa__UserI__5CD6CB2B" FromRole="User" ToRole="ChatMessages" />
     <NavigationProperty Name="Events" Relationship="Self.FK_Events_Person" FromRole="User" ToRole="Events" />
     <NavigationProperty Name="Menu" Relationship="Self.FK_Menu_User" FromRole="User" ToRole="Menu" />
     <NavigationProperty Name="Message" Relationship="Self.FK_Message_User" FromRole="User" ToRole="Message" />
     <NavigationProperty Name="Groups" Relationship="Self.UserGoup" FromRole="User" ToRole="Groups" />
   </EntityType>
-  <Association Name="FK__ChatMessa__Group__47DBAE45">
+  <Association Name="FK__ChatMessa__Group__5DCAEF64">
     <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
     <End Role="ChatMessages" Type="Self.ChatMessages" Multiplicity="*" />
     <ReferentialConstraint>
@@ -124,7 +124,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ChatMessa__UserI__48CFD27E">
+  <Association Name="FK__ChatMessa__UserI__5CD6CB2B">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="ChatMessages" Type="Self.ChatMessages" Multiplicity="*" />
     <ReferentialConstraint>
@@ -236,7 +236,7 @@
     <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="familydbEntities8" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="familydbEntities5" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChatMessages" EntityType="Self.ChatMessages" />
     <EntitySet Name="Events" EntityType="Self.Events" />
     <EntitySet Name="EventsKind" EntityType="Self.EventsKind" />
@@ -245,11 +245,11 @@
     <EntitySet Name="Message" EntityType="Self.Message" />
     <EntitySet Name="Picture" EntityType="Self.Picture" />
     <EntitySet Name="User" EntityType="Self.User" />
-    <AssociationSet Name="FK__ChatMessa__Group__47DBAE45" Association="Self.FK__ChatMessa__Group__47DBAE45">
+    <AssociationSet Name="FK__ChatMessa__Group__5DCAEF64" Association="Self.FK__ChatMessa__Group__5DCAEF64">
       <End Role="Groups" EntitySet="Groups" />
       <End Role="ChatMessages" EntitySet="ChatMessages" />
     </AssociationSet>
-    <AssociationSet Name="FK__ChatMessa__UserI__48CFD27E" Association="Self.FK__ChatMessa__UserI__48CFD27E">
+    <AssociationSet Name="FK__ChatMessa__UserI__5CD6CB2B" Association="Self.FK__ChatMessa__UserI__5CD6CB2B">
       <End Role="User" EntitySet="User" />
       <End Role="ChatMessages" EntitySet="ChatMessages" />
     </AssociationSet>

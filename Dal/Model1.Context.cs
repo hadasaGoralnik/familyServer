@@ -13,10 +13,10 @@ namespace Dal
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class familydbEntities4 : DbContext
+    public partial class familydbEntities5 : DbContext
     {
-        public familydbEntities4()
-            : base("name=familydbEntities4")
+        public familydbEntities5()
+            : base("name=familydbEntities5")
         {
         }
     

@@ -11,7 +11,7 @@ namespace Bl
     {
         public static EventsDto PostEvent(EventsDto events)
         {
-            using (familydbEntities4 db = new familydbEntities4())
+            using (familydbEntities5 db = new familydbEntities5())
             {
                 //db.Groups.ToList().ForEach(x =>
                 //{
@@ -25,7 +25,7 @@ namespace Bl
 
         public static EventsDto GetEventById(int eventId)
         {
-            using (familydbEntities4 db = new familydbEntities4())
+            using (familydbEntities5 db = new familydbEntities5())
             {
                 Events find = new Events();
                 find = db.Events.Include("User").Include("EventsKind").Include("Groups").FirstOrDefault(x => x.Id == eventId);
@@ -37,7 +37,7 @@ namespace Bl
 
         public static List<MenuDto> GetMenusByEventId(int eventId)
         {
-            using (familydbEntities4 db = new familydbEntities4())
+            using (familydbEntities5 db = new familydbEntities5())
             {
                 List<Menu> find = new List<Menu>();
                 find = db.Menu.Where(x => x.EventId == eventId).ToList();
@@ -49,7 +49,7 @@ namespace Bl
 
         public static List<PictureDto>  GetPicturesByEventId(int eventId)
         {
-            using (familydbEntities4 db = new familydbEntities4())
+            using (familydbEntities5 db = new familydbEntities5())
             {
                 List<Picture> find = new List<Picture>();
                 find = db.Picture.Where(x => x.EventId == eventId).ToList();
@@ -61,7 +61,7 @@ namespace Bl
 
         public static List<EventsDto> Get(int group)
         {
-            using (familydbEntities4 db = new familydbEntities4())
+            using (familydbEntities5 db = new familydbEntities5())
             {
                 List<Events> find = new List<Events>();
                 find = db.Events.Where(x => x.GroupId == group).ToList();

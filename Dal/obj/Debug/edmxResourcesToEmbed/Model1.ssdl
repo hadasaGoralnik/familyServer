@@ -98,7 +98,7 @@
     <Property Name="UserId" Type="int" Nullable="false" />
     <Property Name="GroupId" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="FK__ChatMessa__Group__47DBAE45">
+  <Association Name="FK__ChatMessa__Group__5DCAEF64">
     <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
     <End Role="ChatMessages" Type="Self.ChatMessages" Multiplicity="*" />
     <ReferentialConstraint>
@@ -110,7 +110,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ChatMessa__UserI__48CFD27E">
+  <Association Name="FK__ChatMessa__UserI__5CD6CB2B">
     <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="ChatMessages" Type="Self.ChatMessages" Multiplicity="*" />
     <ReferentialConstraint>
@@ -252,11 +252,11 @@
     <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserGoup" EntityType="Self.UserGoup" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__ChatMessa__Group__47DBAE45" Association="Self.FK__ChatMessa__Group__47DBAE45">
+    <AssociationSet Name="FK__ChatMessa__Group__5DCAEF64" Association="Self.FK__ChatMessa__Group__5DCAEF64">
       <End Role="Groups" EntitySet="Groups" />
       <End Role="ChatMessages" EntitySet="ChatMessages" />
     </AssociationSet>
-    <AssociationSet Name="FK__ChatMessa__UserI__48CFD27E" Association="Self.FK__ChatMessa__UserI__48CFD27E">
+    <AssociationSet Name="FK__ChatMessa__UserI__5CD6CB2B" Association="Self.FK__ChatMessa__UserI__5CD6CB2B">
       <End Role="User" EntitySet="User" />
       <End Role="ChatMessages" EntitySet="ChatMessages" />
     </AssociationSet>
