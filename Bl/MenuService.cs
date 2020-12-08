@@ -20,6 +20,17 @@ namespace Bl
                 return Convertion.MenuConvertion.ConvertToDtoList(find).ToList();
             }
         }
+        public static MenuDto GetMenuByMenuId(int menuId)
+        {
+            using (familydbEntities8 db = new familydbEntities8())
+            {
+                Menu find = new Menu();
+                find = db.Menu.Include("User").FirstOrDefault(x => x.Id == menuId);
+                if (find == null)
+                    return null;
+                return Convertion.MenuConvertion.ConvertToDto(find);
+            }
+        }
         public static MenuDto CreateMenu(MenuDto menu)
         {
 
