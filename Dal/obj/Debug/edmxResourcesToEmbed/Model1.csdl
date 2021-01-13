@@ -19,7 +19,7 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Address" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Promoter" Type="Int32" Nullable="false" />
     <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -90,6 +90,16 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="EventId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Events" Relationship="Self.FK_Picture_Events" FromRole="Picture" ToRole="Events" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -236,7 +246,7 @@
     <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="familydbEntities5" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="familydbEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChatMessages" EntityType="Self.ChatMessages" />
     <EntitySet Name="Events" EntityType="Self.Events" />
     <EntitySet Name="EventsKind" EntityType="Self.EventsKind" />
@@ -244,6 +254,7 @@
     <EntitySet Name="Menu" EntityType="Self.Menu" />
     <EntitySet Name="Message" EntityType="Self.Message" />
     <EntitySet Name="Picture" EntityType="Self.Picture" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="User" EntityType="Self.User" />
     <AssociationSet Name="FK__ChatMessa__Group__5DCAEF64" Association="Self.FK__ChatMessa__Group__5DCAEF64">
       <End Role="Groups" EntitySet="Groups" />

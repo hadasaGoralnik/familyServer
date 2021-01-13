@@ -22,7 +22,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="25" Nullable="false" />
           <Property Name="City" Type="nvarchar" MaxLength="15" />
-          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
           <Property Name="Promoter" Type="int" Nullable="false" />
           <Property Name="Comment" Type="nvarchar" MaxLength="50" />
@@ -78,6 +78,16 @@
           <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EventId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -255,6 +265,7 @@
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserGoup" EntityType="Self.UserGoup" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__ChatMessa__Group__5DCAEF64" Association="Self.FK__ChatMessa__Group__5DCAEF64">
@@ -330,7 +341,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Address" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Promoter" Type="Int32" Nullable="false" />
           <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -401,6 +412,16 @@
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EventId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Events" Relationship="Self.FK_Picture_Events" FromRole="Picture" ToRole="Events" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -547,7 +568,7 @@
           <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="familydbEntities5" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="familydbEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ChatMessages" EntityType="Self.ChatMessages" />
           <EntitySet Name="Events" EntityType="Self.Events" />
           <EntitySet Name="EventsKind" EntityType="Self.EventsKind" />
@@ -555,6 +576,7 @@
           <EntitySet Name="Menu" EntityType="Self.Menu" />
           <EntitySet Name="Message" EntityType="Self.Message" />
           <EntitySet Name="Picture" EntityType="Self.Picture" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK__ChatMessa__Group__5DCAEF64" Association="Self.FK__ChatMessa__Group__5DCAEF64">
             <End Role="Groups" EntitySet="Groups" />
@@ -606,7 +628,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="familydbModelStoreContainer" CdmEntityContainer="familydbEntities5">
+        <EntityContainerMapping StorageEntityContainer="familydbModelStoreContainer" CdmEntityContainer="familydbEntities1">
           <EntitySetMapping Name="ChatMessages">
             <EntityTypeMapping TypeName="familydbModel.ChatMessages">
               <MappingFragment StoreEntitySet="ChatMessages">
@@ -685,6 +707,17 @@
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="EventId" ColumnName="EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="familydbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

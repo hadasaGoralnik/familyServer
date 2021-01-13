@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f9b04f4a8647465e8b105f7aa6306b22" Name="Diagram1">
+      <Diagram DiagramId="fad89bb29f4b42a6a06375761f492c27" Name="Diagram1">
         <EntityTypeShape EntityType="familydbModel.ChatMessages" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="familydbModel.Events" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="familydbModel.EventsKind" Width="1.5" PointX="6" PointY="10.875" IsExpanded="true" />
@@ -12,6 +12,7 @@
         <EntityTypeShape EntityType="familydbModel.Menu" Width="1.5" PointX="10.5" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="familydbModel.Message" Width="1.5" PointX="13.5" PointY="15.125" IsExpanded="true" />
         <EntityTypeShape EntityType="familydbModel.Picture" Width="1.5" PointX="10.5" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="familydbModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="familydbModel.User" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
         <AssociationConnector Association="familydbModel.FK__ChatMessa__Group__5DCAEF64" ManuallyRouted="false" />
         <AssociationConnector Association="familydbModel.FK__ChatMessa__UserI__5CD6CB2B" ManuallyRouted="false" />

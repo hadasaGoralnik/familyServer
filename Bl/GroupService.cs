@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Text.RegularExpressions;
 
 namespace Bl
 {
@@ -14,7 +15,7 @@ namespace Bl
     {
         public static List<GroupsDto> Get(int userId)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 // Groups find = new Groups();
                 var groupIds = (from groups in db.Groups
@@ -31,7 +32,7 @@ namespace Bl
 
         public static GroupsDto AddGroup(AddGroupRequest request)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
 
                 Groups group = db.Groups.Add(Convertion.GroupsConvertion.ConvertAddGroupRequestToUser(request));
@@ -48,7 +49,7 @@ namespace Bl
         
         public static GroupsDto DeleteGroup(DeleteGroupRequest request)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 var group = db.Groups.Include(a => a.User).SingleOrDefault(a => a.Id == request.GroupId);
 
@@ -70,7 +71,7 @@ namespace Bl
         }
         public static GroupsDto DeleteUserFromGroup(DeleteUserFromGroupRequest request)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 var group = db.Groups.Include(a => a.User).SingleOrDefault(a => a.Id == request.GroupId);
 
@@ -99,9 +100,10 @@ namespace Bl
         }
         public static List<UserDto> GetUsers(int groupId)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
-                List<User> users = db.Groups.FirstOrDefault(grp => grp.Id == groupId).User.ToList();
+                var group = db.Groups.Include(a => a.User).SingleOrDefault(a => a.Id == groupId);
+                List<User> users = group.User.ToList<User>();
                 if (users == null)
                     return null;
                 return Convertion.UserConvertion.ConvertToDtoList(users);
@@ -109,7 +111,7 @@ namespace Bl
         }
         public static UserDto AddUserToGroup(AddUeserToGroupRequest request)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 var group = db.Groups.Include(a => a.User).SingleOrDefault(a => a.Id == request.GroupId);
                 var user = db.User.FirstOrDefault(u => u.Mail == request.Mail);

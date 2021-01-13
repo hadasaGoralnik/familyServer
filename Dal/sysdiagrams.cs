@@ -12,17 +12,12 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Menu
+    public partial class sysdiagrams
     {
-        public int Id { get; set; }
-        public int MenuOrderNumber { get; set; }
-        public int VolunteerId { get; set; }
-        public string Name { get; set; }
-        public int EventId { get; set; }
-        public Nullable<int> Quantity { get; set; }
-        public Nullable<int> Cost { get; set; }
-    
-        public virtual Events Events { get; set; }
-        public virtual User User { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Bl
     {
         public static EventsDto PostEvent(EventsDto events)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 //db.Groups.ToList().ForEach(x =>
                 //{
@@ -25,7 +25,7 @@ namespace Bl
 
         public static EventsDto GetEventById(int eventId)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 Events find = new Events();
                 find = db.Events.Include("User").Include("EventsKind").Include("Groups").FirstOrDefault(x => x.Id == eventId);
@@ -37,7 +37,7 @@ namespace Bl
         public static EventsDto CreateEvents(EventsDto events)
         {
 
-            using (familydbEntities8 db = new familydbEntities8())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 Events events1 = new Events();
                 events1 = db.Events.Add(Convertion.EventsConvertion.ConvertToEvent(events));
@@ -50,7 +50,7 @@ namespace Bl
 
         public static void SaveImage(int id, string fileName, string name)
         {
-            using (familydbEntities8 db = new familydbEntities8())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 Events find = new Events();
                 var pic = new Picture() {EventId=id,Image= fileName, Name=name };
@@ -61,7 +61,7 @@ namespace Bl
 
         public static List<EventsKindDto> GetAllEventsKind()
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 List<EventsKindDto> find = new List<EventsKindDto>();
                 var events= db.EventsKind.ToList();
@@ -77,7 +77,7 @@ namespace Bl
 
         public static List<PictureDto>  GetPicturesByEventId(int eventId)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 List<Picture> find = new List<Picture>();
                 find = db.Picture.Where(x => x.EventId == eventId).ToList();
@@ -89,7 +89,7 @@ namespace Bl
 
         public static List<EventsDto> Get(int group)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 List<Events> find = new List<Events>();
                 find = db.Events.Where(x => x.GroupId == group).ToList();

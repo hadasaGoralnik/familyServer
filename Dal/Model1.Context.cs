@@ -13,12 +13,11 @@ namespace Dal
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class familydbEntities5 : DbContext
+    public partial class familydbEntities1 : DbContext
     {
-        public familydbEntities5()
-            : base("name=familydbEntities5")
+        public familydbEntities1()
+            : base("name=familydbEntities1")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -33,6 +32,7 @@ namespace Dal
         public virtual DbSet<Menu> Menu { get; set; }
         public virtual DbSet<Message> Message { get; set; }
         public virtual DbSet<Picture> Picture { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Bl
     {
         public static List<MenuDto> GetMenusByEventId(int eventId)
         {
-            using (familydbEntities8 db = new familydbEntities8())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 List<Menu> find = new List<Menu>();
                 find = db.Menu.Include("User").Where(x => x.EventId == eventId).ToList();
@@ -23,7 +23,7 @@ namespace Bl
         public static MenuDto CreateMenu(MenuDto menu)
         {
 
-            using (familydbEntities8 db = new familydbEntities8())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 Menu m = new Menu();
                 m = db.Menu.Add(Convertion.MenuConvertion.ConvertToMenu(menu));

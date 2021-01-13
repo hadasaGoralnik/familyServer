@@ -15,7 +15,7 @@ namespace Bl
     {
         public static UserDto Login(LoginRequest request)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 User find = db.User.FirstOrDefault(x => x.Password == request.Password & x.UserName == request.UserName);
                 if (find == null)
@@ -26,7 +26,7 @@ namespace Bl
 
         public static UserDto SignUp(UserRequest request)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 User user = new User();
                 User find = db.User.ToList().FirstOrDefault(u => u.Password == request.Password && u.UserName == request.UserName);
@@ -46,7 +46,7 @@ namespace Bl
         }
         public static UserDto UpdateUser(UpdateUserRequest request)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 User user = new User();
                 User find = db.User.ToList().FirstOrDefault(u => u.Id == request.Id);
@@ -66,7 +66,7 @@ namespace Bl
 
         public static UserDto Unsubscribe(UnsuscribeRequest request)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 var usr = db.User.Include(a => a.Groups).SingleOrDefault(a => a.Id == request.UserId);
            
@@ -91,7 +91,7 @@ namespace Bl
         }
         public static UserDto GetUserById(int userId)
         {
-            using (familydbEntities5 db = new familydbEntities5())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 User find = db.User.FirstOrDefault(x => x.Id == userId);
                 if (find == null)

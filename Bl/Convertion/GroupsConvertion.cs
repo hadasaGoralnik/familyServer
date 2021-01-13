@@ -19,6 +19,7 @@ namespace Bl.Convertion
             GroupsDto newgroups = new GroupsDto();
             newgroups.Id = groups.Id;
             newgroups.Name = groups.Name;
+            newgroups.Image = groups.Image;
             newgroups.Events = EventsConvertion.ConvertToDtoList(groups.Events.ToList());
             return newgroups;
         }
@@ -34,13 +35,15 @@ namespace Bl.Convertion
             Group newgroups = new Group();
             newgroups.Id = groups.Id;
             newgroups.Name = groups.Name;
-              newgroups.Events = EventsConvertion.convertToListEvent(groups.Events);
+            newgroups.Image = groups.Image;
+            newgroups.Events = EventsConvertion.convertToListEvent(groups.Events);
             return newgroups;
         }
         public static Group ConvertAddGroupRequestToUser(AddGroupRequest request)
         {
             Group newgroups = new Group();
             newgroups.Name = request.Name;
+            newgroups.Image = request.Image;
             return newgroups;
         }
      
