@@ -17,6 +17,12 @@ namespace Ui.Controllers
         {
             return Ok(MenuService.GetMenusByEventId(eventId));
         }
+        [HttpGet]
+        [Route("GetMenuByMenuId/{menuId}")]
+        public IHttpActionResult GetMenuByMenuId(int menuId)
+        {
+            return Ok(MenuService.GetMenuByMenuId(menuId));
+        }
         [HttpPost]
         public IHttpActionResult CreateMenu(MenuDto menu)
         {
