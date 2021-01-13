@@ -19,6 +19,7 @@ namespace Bl.Convertion
             newMenu.Cost = menu.Cost;
             newMenu.EventId = menu.EventId;
             newMenu.MenuOrderNumber = menu.MenuOrderNumber;
+            newMenu.User = menu.User == null ? new UserDto() : UserConvertion.ConvertToDto(menu.User);
             return newMenu;
         }
         public static Menu ConvertToMenu(MenuDto menu)

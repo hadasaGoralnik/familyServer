@@ -22,7 +22,14 @@ namespace Bl.Convertion
             newgroups.Events = EventsConvertion.ConvertToDtoList(groups.Events.ToList());
             return newgroups;
         }
-        public static Group ConvertToGroups(GroupsDto groups)
+        public static GroupsDto ConvertToSingleDto(Group groups)
+        {
+            GroupsDto newgroups = new GroupsDto();
+            newgroups.Id = groups.Id;
+            newgroups.Name = groups.Name;      
+            return newgroups;
+        }
+    public static Group ConvertToGroups(GroupsDto groups)
         {
             Group newgroups = new Group();
             newgroups.Id = groups.Id;

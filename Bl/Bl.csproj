@@ -66,6 +66,7 @@
     <Compile Include="Convertion\PictureConvertion.cs" />
     <Compile Include="EventsKindService.cs" />
     <Compile Include="GroupService.cs" />
+    <Compile Include="MenuService.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
