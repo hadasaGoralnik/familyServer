@@ -22,7 +22,7 @@ namespace Bl
         }
         public static MenuDto GetMenuByMenuId(int menuId)
         {
-            using (familydbEntities8 db = new familydbEntities8())
+            using (familydbEntities1 db = new familydbEntities1())
             {
                 Menu find = new Menu();
                 find = db.Menu.Include("User").FirstOrDefault(x => x.Id == menuId);
