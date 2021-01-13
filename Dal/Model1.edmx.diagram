@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="65dbb59397ba49f4bc3e8c2984f92acd" Name="Diagram1">
-        <EntityTypeShape EntityType="familydbModel.ChatMessages" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="familydbModel.Events" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="familydbModel.EventsKind" Width="1.5" PointX="6" PointY="10.875" IsExpanded="true" />
+      <Diagram DiagramId="49d98e9a11714cf6888819e97a3e4eb2" Name="Diagram1">
+        <EntityTypeShape EntityType="familydbModel.ChatMessages" Width="1.5" PointX="4.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="familydbModel.Events" Width="1.5" PointX="6.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="familydbModel.EventsKind" Width="1.5" PointX="2.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="familydbModel.Groups" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="familydbModel.Menu" Width="1.5" PointX="10.5" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="familydbModel.Message" Width="1.5" PointX="13.5" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="familydbModel.Picture" Width="1.5" PointX="10.5" PointY="20.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="familydbModel.User" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="familydbModel.Menu" Width="1.5" PointX="4.875" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="familydbModel.Message" Width="1.5" PointX="8.375" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="familydbModel.Picture" Width="1.5" PointX="8.375" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="familydbModel.User" Width="1.5" PointX="1.75" PointY="12.5" IsExpanded="true" />
         <AssociationConnector Association="familydbModel.FK__ChatMessa__Group__47DBAE45" ManuallyRouted="false" />
         <AssociationConnector Association="familydbModel.FK__ChatMessa__UserI__48CFD27E" ManuallyRouted="false" />
         <AssociationConnector Association="familydbModel.FK_Events_EventsKind" ManuallyRouted="false" />

@@ -13,12 +13,11 @@ namespace Dal
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class familydbEntities8 : DbContext
+    public partial class familydbEntities9 : DbContext
     {
-        public familydbEntities8()
-            : base("name=familydbEntities8")
+        public familydbEntities9()
+            : base("name=familydbEntities9")
         {
-            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -46,13 +46,33 @@ namespace Bl.Convertion
             newEvent.Address = events.Address;
             newEvent.EventKindId = events.EventKindId;
             newEvent.IsDairy = events.IsDairy;
-            //newEvent.Message = events.me;
-            //newEvent.Picture = events.Picture;
             newEvent.Repeat = events.Repeat;
             newEvent.Title = events.Title;
             newEvent.User = newEvent.User == null ? new User() : UserConvertion.ConvertToUser(events.User);
             newEvent.EventsKind = newEvent.EventsKind == null ? new EventsKind() : EventsKindConvertion.ConvertToEventsKind(events.EventsKind);
             newEvent.Groups = newEvent.Groups == null ? new Groups() : GroupsConvertion.ConvertToGroups(events.Groups);
+            return newEvent;
+        }
+
+        public static Events ConvertToEventNoChildren(EventsDto events)
+        {
+            Events newEvent = new Events();
+            newEvent.Comment = events.Comment;
+            newEvent.Date = events.Date;
+            newEvent.Description = events.Description;
+            newEvent.Id = events.Id;
+            newEvent.Promoter = events.Promoter;
+            newEvent.City = events.City;
+            newEvent.Description = events.Description;
+            newEvent.GroupId = events.GroupId;
+            newEvent.Address = events.Address;
+            newEvent.EventKindId = events.EventKindId;
+            newEvent.IsDairy = events.IsDairy;
+            newEvent.Repeat = events.Repeat;
+            newEvent.Title = events.Title;
+            newEvent.User =  null;
+            newEvent.EventsKind = null;
+            newEvent.Groups = null;
             return newEvent;
         }
         public static List<EventsDto> ConvertToDtoList(List<Events> e)

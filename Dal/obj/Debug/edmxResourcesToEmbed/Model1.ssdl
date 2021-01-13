@@ -17,7 +17,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="City" Type="nvarchar" MaxLength="15" />
-    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="50" />
     <Property Name="Promoter" Type="int" Nullable="false" />
     <Property Name="Comment" Type="nvarchar" MaxLength="50" />

@@ -32,6 +32,20 @@ namespace Bl.Convertion
             newMenu.Cost = menu.Cost;
             newMenu.EventId = menu.EventId;
             newMenu.MenuOrderNumber = menu.MenuOrderNumber;
+            newMenu.User = newMenu.User == null ? new User() : UserConvertion.ConvertToUser(menu.User);
+            return newMenu;
+        }
+        public static Menu ConvertToMenuWithoutIncluse(MenuDto menu)
+        {
+            Menu newMenu = new Menu();
+            newMenu.Id = menu.Id;
+            newMenu.VolunteerId = menu.VolunteerId;
+            newMenu.Name = menu.Name;
+            newMenu.Quantity = menu.Quantity;
+            newMenu.Cost = menu.Cost;
+            newMenu.EventId = menu.EventId;
+            newMenu.MenuOrderNumber = menu.MenuOrderNumber;
+            newMenu.User = null;
             return newMenu;
         }
         public static List<MenuDto> ConvertToDtoList(List<Menu> m)

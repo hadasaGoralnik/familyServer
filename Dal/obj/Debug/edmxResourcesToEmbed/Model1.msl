@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="familydbModelStoreContainer" CdmEntityContainer="familydbEntities8">
+  <EntityContainerMapping StorageEntityContainer="familydbModelStoreContainer" CdmEntityContainer="familydbEntities9">
     <EntitySetMapping Name="ChatMessages">
       <EntityTypeMapping TypeName="familydbModel.ChatMessages">
         <MappingFragment StoreEntitySet="ChatMessages">
