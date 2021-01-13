@@ -66,6 +66,26 @@ namespace Ui.Controllers
                 return Ok(events1);
             return BadRequest();
         }
-
+        [HttpPut]
+        public IHttpActionResult UpdateEvents(EventsDto events)
+        {
+            if (events == null)
+                return BadRequest();
+            EventsDto events1 = EventService.UpdateEvents(events);
+            if (events1 != null)
+                return Ok(events1);
+            return BadRequest();
+        }
+        [HttpDelete]
+        [Route("DeleteEvent/{eventsId}")]
+        public IHttpActionResult DeleteEvent(int  eventsId)
+        {
+            EventsDto e = EventService.DeleteEvent(eventsId);
+            if (e == null)
+                return BadRequest();
+            if (e != null)
+                return Ok(e);
+            return BadRequest();
+        }
     }
 }

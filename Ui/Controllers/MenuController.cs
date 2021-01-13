@@ -24,6 +24,7 @@ namespace Ui.Controllers
             return Ok(MenuService.GetMenuByMenuId(menuId));
         }
         [HttpPost]
+        [Route("CreateMenu")]
         public IHttpActionResult CreateMenu(MenuDto menu)
         {
             if (menu == null)
@@ -31,6 +32,27 @@ namespace Ui.Controllers
             MenuDto menu1 = MenuService.CreateMenu(menu);
             if (menu1 != null)
                 return Ok(menu1);
+            return BadRequest();
+        }
+        [HttpPut]
+        public IHttpActionResult UpdateMenu(MenuDto menu)
+        {
+            if (menu == null)
+                return BadRequest();
+            MenuDto menu1 = MenuService.UpdateMenu(menu);
+            if (menu1 != null)
+                return Ok(menu1);
+            return BadRequest();
+        }
+        [HttpDelete]
+        [Route("DeleteMenu/{menuId}")]
+        public IHttpActionResult DeleteMenu(int menuId)
+        {
+            MenuDto e = MenuService.DeleteMenu(menuId);
+            if (e == null)
+                return BadRequest();
+            if (e != null)
+                return Ok(e);
             return BadRequest();
         }
     }

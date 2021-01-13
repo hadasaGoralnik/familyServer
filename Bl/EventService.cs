@@ -11,13 +11,9 @@ namespace Bl
     {
         public static EventsDto PostEvent(EventsDto events)
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities9 db = new familydbEntities9())
             {
-                //db.Groups.ToList().ForEach(x =>
-                //{
-                //    x.Users.ToList().ForEach(y => {y.Id == "342");
-                //});
-                db.Events.Add(Convertion.EventsConvertion.ConvertToEvent(events));
+                db.Events.Add(Convertion.EventsConvertion.ConvertToEventNoChildren(events));
                 db.SaveChanges();
                 return events;
             }
@@ -25,7 +21,7 @@ namespace Bl
 
         public static EventsDto GetEventById(int eventId)
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities9 db = new familydbEntities9())
             {
                 Events find = new Events();
                 find = db.Events.Include("User").Include("EventsKind").Include("Groups").FirstOrDefault(x => x.Id == eventId);
@@ -37,20 +33,19 @@ namespace Bl
         public static EventsDto CreateEvents(EventsDto events)
         {
 
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities9 db = new familydbEntities9())
             {
-                Events events1 = new Events();
-                events1 = db.Events.Add(Convertion.EventsConvertion.ConvertToEvent(events));
+                Events events1 = Convertion.EventsConvertion.ConvertToEventNoChildren(events);
+                db.Events.Add(events1);
                 db.SaveChanges();
-                if (events1 == null)
-                    return null;
                 return Convertion.EventsConvertion.ConvertToDto(events1);
             }
         }
 
+
         public static void SaveImage(int id, string fileName, string name)
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities9 db = new familydbEntities9())
             {
                 Events find = new Events();
                 var pic = new Picture() {EventId=id,Image= fileName, Name=name };
@@ -61,7 +56,7 @@ namespace Bl
 
         public static List<EventsKindDto> GetAllEventsKind()
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities9 db = new familydbEntities9())
             {
                 List<EventsKindDto> find = new List<EventsKindDto>();
                 var events= db.EventsKind.ToList();
@@ -75,9 +70,61 @@ namespace Bl
             }
         }
 
+        public static EventsDto DeleteEvent(int events)
+        {
+            using (familydbEntities9 db = new familydbEntities9())
+            {
+                List<Menu> find = new List<Menu>();
+                find = db.Menu.Where(x => x.EventId == events).ToList();
+                foreach (var item in find)
+                {
+                    db.Menu.Remove(item);
+                }
+                List<Picture> find1 = new List<Picture>();
+                find1 = db.Picture.Where(x => x.EventId == events).ToList();
+                foreach (var item in find1)
+                {
+                    db.Picture.Remove(item);
+                }
+                Events e = db.Events.Where(x => x.Id == events).FirstOrDefault();
+                EventsDto e1= Convertion.EventsConvertion.ConvertToDto(e);
+                db.Events.Remove(e);
+                db.SaveChanges();
+                return e1;
+            }
+        }
+
+        public static EventsDto UpdateEvents(EventsDto events)
+        {
+            using (familydbEntities9 db = new familydbEntities9())
+            {
+                var events1=db.Events.FirstOrDefault(e => e.Id == events.Id);
+                if(events1!=null)
+                {
+                    Events e = Convertion.EventsConvertion.ConvertToEventNoChildren(events);
+                    events1.Address = e.Address;
+                    events1.City = e.City;
+                    events1.Comment = e.Comment;
+                    events1.Date = e.Date;
+                    events1.Description = e.Description;
+                    events1.EventKindId = e.EventKindId;
+                    events1.EventsKind = e.EventsKind;
+                    events1.GroupId = e.GroupId;
+                    events1.Id = e.Id;
+                    events1.IsDairy = e.IsDairy;
+                    events1.Promoter = e.Promoter;
+                    events1.Repeat = e.Repeat;
+                    events1.Title = e.Title;
+                }
+                db.SaveChanges();
+
+                return Convertion.EventsConvertion.ConvertToDto(events1);
+            }
+        }
+
         public static List<PictureDto>  GetPicturesByEventId(int eventId)
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities9 db = new familydbEntities9())
             {
                 List<Picture> find = new List<Picture>();
                 find = db.Picture.Where(x => x.EventId == eventId).ToList();
@@ -89,7 +136,7 @@ namespace Bl
 
         public static List<EventsDto> Get(int group)
         {
-            using (familydbEntities1 db = new familydbEntities1())
+            using (familydbEntities9 db = new familydbEntities9())
             {
                 List<Events> find = new List<Events>();
                 find = db.Events.Where(x => x.GroupId == group).ToList();
